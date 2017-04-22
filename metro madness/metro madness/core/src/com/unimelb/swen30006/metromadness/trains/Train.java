@@ -123,7 +123,7 @@ public class Train {
 						if(endOfLine){
 							this.forward = !this.forward;
 						}
-						this.track = this.trainLine.nextTrack(this.station, this.forward);//TODO move top mapping nextTrack
+						this.track = this.trainLine.nextTrack(this.station, this.forward);
 						this.state = State.READY_DEPART;
 						break;
 					} catch (Exception e){
@@ -178,7 +178,8 @@ public class Train {
 				if(this.station.canEnter(this)){
 					this.track.leave(this);
 					this.pos = (Point2D.Float) this.station.position.clone();
-					this.station.enter(this);
+					//this.station.enter(this);
+					enter(station);
 					this.state = State.IN_STATION;
 					this.disembarked = false;
 				}
@@ -214,7 +215,7 @@ public class Train {
 				}
 				
 				//Do not add new passengers if there are too many already
-				if (s.waiting.size() > maxVolume){
+				if (s.waiting.size() > s.maxVolume){
 					return;
 				}
 				// Add the new passenger
