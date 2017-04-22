@@ -21,7 +21,7 @@ public class Station {
 	public static final int MAX_LINES=3;
 	// public String name;
 	protected String name;
-	public ArrayList<Line> lines;
+	//public ArrayList<Line> lines;
 	public ArrayList<Train> trains;
 	public static final float DEPARTURE_TIME = 2;
 	public PassengerRouter router;
