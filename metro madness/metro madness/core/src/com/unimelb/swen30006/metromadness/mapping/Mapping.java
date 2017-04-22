@@ -7,6 +7,7 @@ import com.unimelb.swen30006.metromadness.passengers.Passenger;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.tracks.Track;
+import com.unimelb.swen30006.metromadness.trains.Train;
 
 public class Mapping {
 	
@@ -14,7 +15,7 @@ public class Mapping {
 	private static HashMap<Station, ArrayList<Line>> stationLines = new HashMap<Station, ArrayList<Line>>();
 	private static HashMap<Line, ArrayList<Track>> lineTracks = new HashMap<Line, ArrayList<Track>>();
 	private static HashMap<Station, ArrayList<Passenger>> stationPassengers = new HashMap<Station, ArrayList<Passenger>>();
-	
+	private static HashMap<Train, ArrayList<Passenger>> trainPassengers = new HashMap<Train, ArrayList<Passenger>>();
 	
 	/*public Mapping(){
 		
@@ -34,8 +35,11 @@ public class Mapping {
 	public static ArrayList<Track> getLineTracks(Line l){
 		return lineTracks.get(l);
 	}
-	public static ArrayList<Passenger> getStationPassnegers(Station s){
+	public static ArrayList<Passenger> getStationPassengers(Station s){
 		return stationPassengers.get(s);
+	}
+	public static ArrayList<Passenger> getTrainPassengers(Train t){
+		return trainPassengers.get(t);
 	}
 	
 	public static void addLineStations(Line l, Station s){
@@ -93,6 +97,18 @@ public class Mapping {
 			stationPassengers.get(s).add(p);
 		}
 	}
-	
+	public static void addTrainPassengers(Train t, Passenger p){
+		//if the train has not been inserted in mapping
+				if(!trainPassengers.containsKey(t)){
+					//create ArrayList for p
+					ArrayList<Passenger> passengers = new ArrayList<Passenger>();
+					passengers.add(p);
+					//insert
+					trainPassengers.put(t, passengers);
+				}else{
+					//insert
+					trainPassengers.get(t).add(p);
+				}
+	}
 	
 }

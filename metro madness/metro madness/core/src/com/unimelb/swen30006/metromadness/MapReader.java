@@ -147,7 +147,7 @@ public class MapReader {
 		for(Element s: stations){
 			Station station = this.stations.get(s.get("name"));
 			boolean twoWay = s.getBoolean("double");
-			l.addStation(station, twoWay); //TODO replace with add to mapping
+			//l.addStation(station, twoWay); //TODO replace with add to mapping
 			//add station to line
 			Mapping.addLineStations(l, station);
 			//if this is not first station, add track before the station
