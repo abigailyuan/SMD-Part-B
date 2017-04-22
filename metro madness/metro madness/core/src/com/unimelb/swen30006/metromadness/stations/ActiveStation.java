@@ -18,14 +18,14 @@ public class ActiveStation extends Station {
 	// Logger
 	private static Logger logger = LogManager.getLogger();
 	
-	public PassengerGenerator g;
+	//public PassengerGenerator g;
 	public ArrayList<Passenger> waiting;
 	public float maxVolume;
 	
 	public ActiveStation(float x, float y, PassengerRouter router, String name, float maxPax) {
 		super(x, y, router, name);
 		this.waiting = new ArrayList<Passenger>();
-		this.g = new PassengerGenerator(this, this.lines, maxPax);
+		//this.g = new PassengerGenerator(this, this.lines, maxPax);
 		this.maxVolume = maxPax;
 	}
 	
