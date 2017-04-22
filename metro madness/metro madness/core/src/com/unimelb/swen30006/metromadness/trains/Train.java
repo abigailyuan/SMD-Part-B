@@ -10,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
+import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
+import com.unimelb.swen30006.metromadness.stations.ActiveStation;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.tracks.Track;
@@ -189,6 +191,46 @@ public class Train {
 
 	}
 
+	public void enter(Station station) throws Exception {
+		if (station instanceof ActiveStation) {
+			ActiveStation s = (ActiveStation)station;
+			if(s.trains.size() >= s.PLATFORMS){
+				throw new Exception();
+			} else {
+				// Add the train
+				s.trains.add(this);
+				// Add the waiting passengers
+				Iterator<Passenger> pIter = s.waiting.iterator();
+				while(pIter.hasNext()){
+					Passenger p = pIter.next();
+					try {
+						logger.info("Passenger "+ p.getId()+" carrying "+p.getCargo() +" kg cargo embarking at "+this.name+" heading to "+p.getDestination());
+						this.embark(p);
+						pIter.remove();
+					} catch (Exception e){
+						// Do nothing, already waiting
+						break;
+					}
+				}
+				
+				//Do not add new passengers if there are too many already
+				if (s.waiting.size() > maxVolume){
+					return;
+				}
+				// Add the new passenger
+				Passenger[] ps = PassengerGenerator.generatePassengers(this);
+				for(Passenger p: ps){
+					try {
+						logger.info("Passenger "+p.getId()+" carrying "+p.getCargo() +" kg embarking at "+ this.name+" heading to "+p.getDestination());
+						t.embark(p);
+					} catch(Exception e){
+						this.waiting.add(p);
+					}
+				}
+			}
+		}
+	}
+	
 	public void move(float delta){
 		// Work out where we're going
 		float angle = angleAlongLine(this.pos.x,this.pos.y,this.station.position.x,this.station.position.y);
