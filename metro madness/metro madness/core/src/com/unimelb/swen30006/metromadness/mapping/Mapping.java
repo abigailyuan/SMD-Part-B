@@ -36,9 +36,17 @@ public class Mapping {
 		return lineTracks.get(l);
 	}
 	public static ArrayList<Passenger> getStationPassengers(Station s){
+		if(!stationPassengers.containsKey(s)){
+			ArrayList<Passenger> passengers = new ArrayList<Passenger>();
+			stationPassengers.put(s, passengers);
+		}
 		return stationPassengers.get(s);
 	}
 	public static ArrayList<Passenger> getTrainPassengers(Train t){
+		if(!trainPassengers.containsKey(t)){
+			ArrayList<Passenger> passengers = new ArrayList<Passenger>();
+			trainPassengers.put(t, passengers);
+		}
 		return trainPassengers.get(t);
 	}
 	
