@@ -58,7 +58,7 @@ public class MapReader {
 			Array<Element> stationList = stations.getChildrenByName("station");
 			for(Element e : stationList){
 				Station s = processStation(e);
-				this.stations.put(s.name, s);
+				this.stations.put(s.getName(), s);
 			}
 			
 			// Process Lines
