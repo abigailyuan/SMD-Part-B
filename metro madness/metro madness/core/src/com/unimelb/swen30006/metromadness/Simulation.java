@@ -9,6 +9,7 @@ import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.Train;
+import com.unimelb.swen30006.metromadness.mapping.mapping;
 
 public class Simulation {
 	
@@ -17,11 +18,15 @@ public class Simulation {
 	public ArrayList<Train> trains;
 	public PassengerGenerator passengerGen;
 	public ArrayList<Passenger> passengers;
+	public static mapping mappings;
 	
 	public Simulation(String fileName){
 		// Create a map reader and read in the file
 		MapReader m = new MapReader(fileName);
 		m.process();
+		
+		//Create a mapping	
+		this.mappings = new mapping();		
 		
 		
 		// Create a list of lines
