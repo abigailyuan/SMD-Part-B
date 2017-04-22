@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.unimelb.swen30006.metromadness.Simulation;
-import com.unimelb.swen30006.metromadness.mapping.mapping;
+import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.stations.Station;
 
 public class Line {
@@ -29,16 +28,16 @@ public class Line {
 		this.name = name;
 		
 		// Create the data structures
-		this.stations = new ArrayList<Station>();
+		//this.stations = new ArrayList<Station>();
 		this.tracks = new ArrayList<Track>();
 	}
 	
 	
 	public void addStation(Station s, Boolean two_way){
 		// We need to build the track if this is adding to existing stations
-		if(this.stations.size() > 0){
+		if(Mapping.getLineStations(this).size() > 0){
 			// Get the last station
-			Station last = this.stations.get(this.stations.size()-1);
+			Station last = Mapping.getLineStations(this).get(Mapping.getLineStations(this).size()-1);
 			
 			// Generate a new track
 			Track t;
@@ -52,7 +51,7 @@ public class Line {
 		
 		// Add the station
 		s.registerLine(this);
-		this.stations.add(s);
+		Mapping.getLineStations(this).add(s);
 	}
 	
 	
@@ -63,9 +62,9 @@ public class Line {
 
 
 	public boolean endOfLine(Station s) throws Exception{
-		if(this.stations.contains(s)){ //TODO change to mapping lineStations containsKey
-			int index = this.stations.indexOf(s); //TODO mapping index
-			return (index==0 || index==this.stations.size()-1);
+		if(Mapping.getLineStations(this).contains(s)){
+			int index = Mapping.getLineStations(this).indexOf(s);
+			return (index==0 || index==Mapping.getLineStations(this).size()-1);
 		} else {
 			throw new Exception();
 		}
@@ -74,11 +73,9 @@ public class Line {
 	
 	
 	public Track nextTrack(Station currentStation, boolean forward) throws Exception {
-		//if(this.stations.contains(currentStation)){//TODO lineStations containnKeys
-		if(Simulation.mappings.getLineStations(this).contains(currentStation)){
+		if(Mapping.getLineStations(this).contains(currentStation)){
 			// Determine the track index
-			//int curIndex = this.stations.lastIndexOf(currentStation);//TODO mapping
-			int curIndex = Simulation.mappings.getLineStations(this).lastIndexOf(currentStation);
+			int curIndex = Mapping.getLineStations(this).lastIndexOf(currentStation);
 			// Increment to retrieve
 			if(!forward){ curIndex -=1;}
 			
@@ -95,15 +92,15 @@ public class Line {
 	}
 	
 	public Station nextStation(Station s, boolean forward) throws Exception{
-		if(this.stations.contains(s)){//TODO mapping
-			int curIndex = this.stations.lastIndexOf(s);//TODO mapping ? stations.lastINdexOf???
+		if(Mapping.getLineStations(this).contains(s)){
+			int curIndex = Mapping.getLineStations(this).lastIndexOf(s);
 			if(forward){ curIndex+=1;}else{ curIndex -=1;}
 			
 			// Check index is within range
-			if((curIndex < 0) || (curIndex > this.stations.size()-1)){//TODO mapping
+			if((curIndex < 0) || (curIndex > Mapping.getLineStations(this).size()-1)){
 				throw new Exception();
 			} else {
-				return this.stations.get(curIndex);//TODO mapping getStation
+				return Mapping.getLineStations(this).get(curIndex);
 			}
 		} else {
 			throw new Exception();
