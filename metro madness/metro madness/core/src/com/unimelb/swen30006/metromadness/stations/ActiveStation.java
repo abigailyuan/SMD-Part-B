@@ -55,7 +55,7 @@ public class ActiveStation extends Station {
 				return;
 			}
 			// Add the new passenger
-			Passenger[] ps = this.g.generatePassengers();
+			Passenger[] ps = PassengerGenerator.generatePassengers(this);
 			for(Passenger p: ps){
 				try {
 					logger.info("Passenger "+p.getId()+" carrying "+p.getCargo() +" kg embarking at "+ this.name+" heading to "+p.getDestination());
