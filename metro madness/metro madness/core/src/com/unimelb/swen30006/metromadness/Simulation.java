@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
 import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.Train;
-import com.unimelb.swen30006.metromadness.mapping.mapping;
+//import com.unimelb.swen30006.metromadness.Mapping;
 
 public class Simulation {
 	
@@ -18,7 +19,7 @@ public class Simulation {
 	public ArrayList<Train> trains;
 	//public static PassengerGenerator passengerGen;
 	//public ArrayList<Passenger> passengers;
-	public static mapping mappings;
+	public static Mapping mappings;
 	
 	public Simulation(String fileName){
 		// Create a map reader and read in the file
@@ -26,7 +27,7 @@ public class Simulation {
 		m.process();
 		
 		//Create a mapping	
-		Simulation.mappings = new mapping();		
+		Simulation.mappings = new Mapping();		
 		
 		
 		// Create a list of lines

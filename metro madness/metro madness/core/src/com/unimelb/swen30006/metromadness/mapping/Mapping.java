@@ -8,32 +8,33 @@ import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.tracks.Track;
 
-public class mapping {
+public class Mapping {
 	
-	private HashMap<Line, ArrayList<Station>> lineStations;
-	private HashMap<Station, ArrayList<Line>> stationLines;
-	private HashMap<Line, ArrayList<Track>> lineTracks;
-	private HashMap<Station, ArrayList<Passenger>> stationPassengers;
+	private static HashMap<Line, ArrayList<Station>> lineStations = new HashMap<Line, ArrayList<Station>>();
+	private static HashMap<Station, ArrayList<Line>> stationLines = new HashMap<Station, ArrayList<Line>>();
+	private static HashMap<Line, ArrayList<Track>> lineTracks = new HashMap<Line, ArrayList<Track>>();
+	private static HashMap<Station, ArrayList<Passenger>> stationPassengers = new HashMap<Station, ArrayList<Passenger>>();
 	
-	public mapping(){
+	
+	/*public Mapping(){
 		
 		lineStations = new HashMap<Line, ArrayList<Station>>();
 		stationLines = new HashMap<Station, ArrayList<Line>>();
 		lineTracks = new HashMap<Line, ArrayList<Track>>();
 		stationPassengers = new HashMap<Station, ArrayList<Passenger>>();
 		
-	}
+	}*/
 	
-	public ArrayList<Station> getLineStations(Line l){
+	public static ArrayList<Station> getLineStations(Line l){
 		return lineStations.get(l);
 	}
-	public ArrayList<Line> getStationLines(Station s){
+	public static ArrayList<Line> getStationLines(Station s){
 		return stationLines.get(s);
 	}
-	public ArrayList<Track> getLineTracks(Line l){
+	public static ArrayList<Track> getLineTracks(Line l){
 		return lineTracks.get(l);
 	}
-	public ArrayList<Passenger> getStationPassnegers(Station s){
+	public static ArrayList<Passenger> getStationPassnegers(Station s){
 		return stationPassengers.get(s);
 	}
 	
