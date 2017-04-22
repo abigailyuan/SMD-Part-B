@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
 import com.unimelb.swen30006.metromadness.routers.PassengerRouter;
 import com.unimelb.swen30006.metromadness.tracks.Line;
@@ -30,18 +31,18 @@ public class Station {
 		this.name = name;
 		this.router = router;
 		this.position = new Point2D.Float(x,y);
-		this.lines = new ArrayList<Line>();
+		//this.lines = new ArrayList<Line>();
 		this.trains = new ArrayList<Train>();
 	}
 	
 	public void registerLine(Line l){
-		this.lines.add(l);
+		Mapping.getStationLines(this).add(l);
 	}
 	
 	public void render(ShapeRenderer renderer){
 		float radius = RADIUS;
-		for(int i=0; (i<this.lines.size() && i<MAX_LINES); i++){
-			Line l = this.lines.get(i);
+		for(int i=0; (i<Mapping.getStationLines(this).size() && i<MAX_LINES); i++){
+			Line l = Mapping.getStationLines(this).get(i);
 			renderer.setColor(l.lineColour);
 			renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);
 			radius = radius - 1;
