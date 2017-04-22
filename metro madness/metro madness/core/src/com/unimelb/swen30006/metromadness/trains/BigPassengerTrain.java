@@ -9,8 +9,10 @@ import com.unimelb.swen30006.metromadness.tracks.Line;
 
 public class BigPassengerTrain extends Train {
 
-	public BigPassengerTrain(Line trainLine, Station start, boolean forward, String name, int maxPassengers) {
-		super(trainLine, start, forward, name, maxPassengers);
+	public static final int BIG_TRAIN_CAPACITY = 80;
+	
+	public BigPassengerTrain(Line trainLine, Station start, boolean forward, String name) {
+		super(trainLine, start, forward, name, BIG_TRAIN_CAPACITY);
 	}
 	
 	/*@Override

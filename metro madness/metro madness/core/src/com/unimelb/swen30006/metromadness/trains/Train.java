@@ -72,6 +72,16 @@ public class Train {
 		this.name = name;
 		this.maxPassengers = maxPassengers;
 	}
+	
+	
+	public Train(Line trainLine, Station start, boolean forward, String name){
+		this.trainLine = trainLine;
+		this.station = start;
+		this.state = State.FROM_DEPOT;
+		this.forward = forward;
+		//this.passengers = new ArrayList<Passenger>();
+		this.name = name;
+	}
 
 	public void update(float delta){
 		// Update all passengers
@@ -226,7 +236,7 @@ public class Train {
 					return;
 				}
 				// Add the new passenger
-				Passenger[] ps = PassengerGenerator.generatePassengers(this);
+				Passenger[] ps = PassengerGenerator.generatePassengers(station);
 				for(Passenger p: ps){
 					try {
 						logger.info("Passenger "+p.getId()+" carrying "+p.getCargo() +" kg embarking at "+ this.name+" heading to "+p.getDestination());
