@@ -112,7 +112,7 @@ public class Line {
 		renderer.setColor(trackColour);
 	
 		// Draw all the track sections
-		for(Track t: this.tracks){
+		for(Track t: Mapping.getLineTracks(this)){
 			t.render(renderer);
 		}	
 	}
