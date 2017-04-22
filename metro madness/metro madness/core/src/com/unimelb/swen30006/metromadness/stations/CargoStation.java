@@ -19,7 +19,7 @@ public class CargoStation extends ActiveStation {
 	 * @param name
 	 * @param maxPax
 	 */
-	public CargoStation(float x, float y, PassengerRouter router, String name, float maxPax) {
+	public CargoStation(float x, float y, PassengerRouter router, String name, int maxPax) {
 		super(x, y, router, name, maxPax);
 
 	}

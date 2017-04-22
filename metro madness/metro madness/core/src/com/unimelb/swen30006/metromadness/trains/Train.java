@@ -88,8 +88,11 @@ public class Train {
 		/*for(Passenger p: this.passengers){
 			p.update(delta);
 		}*/
-		for (Passenger p : Mapping.getTrainPassengers(this)){
-			p.update(delta);
+		ArrayList<Passenger> psgOnTrain = Mapping.getTrainPassengers(this);
+		if (psgOnTrain.size() > 0) {
+			for (Passenger p : psgOnTrain){
+				p.update(delta);
+			}
 		}
 		boolean hasChanged = false;
 		if(previousState == null || previousState != this.state){
@@ -218,6 +221,7 @@ public class Train {
 				// Add the train
 				s.trains.add(this);
 				// Add the waiting passengers
+				ArrayList<Passenger> waiting = Mapping.getStationPassengers(s);
 				Iterator<Passenger> pIter = Mapping.getStationPassengers(s).iterator();
 				while(pIter.hasNext()){
 					Passenger p = pIter.next();
@@ -232,7 +236,7 @@ public class Train {
 				}
 				
 				//Do not add new passengers if there are too many already
-				if (s.waiting.size() > s.maxVolume){
+				if (waiting.size() > s.maxVolume){
 					return;
 				}
 				// Add the new passenger

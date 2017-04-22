@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import com.unimelb.swen30006.metromadness.Simulation;
+import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 
@@ -49,15 +50,15 @@ public class PassengerGenerator {
 	
 	public static Passenger generatePassenger(Station origin, Random random){
 		// Pick a random station from the line
-		Line l = Simulation.mappings.getStationLines(origin).get(random.nextInt(Simulation.mappings.getStationLines(origin).size()));
-		int current_station = l.stations.indexOf(origin);
+		Line l = Mapping.getStationLines(origin).get(random.nextInt(Mapping.getStationLines(origin).size()));
+		int current_station = Mapping.getLineStations(l).indexOf(origin);
 		
 		boolean forward = random.nextBoolean();
 		
 		// If we are the end of the line then set our direction forward or backward
 		if(current_station == 0){
 			forward = true;
-		} else if (current_station == l.stations.size()-1){
+		} else if (current_station == Mapping.getLineStations(l).size()-1){
 			forward = false;
 		}
 		
@@ -65,11 +66,11 @@ public class PassengerGenerator {
 		int index = 0;
 		
 		if (forward){
-			index = random.nextInt(l.stations.size()-1-current_station) + current_station + 1;
+			index = random.nextInt(Mapping.getLineStations(l).size()-1-current_station) + current_station + 1;
 		} else {
 			index = current_station - 1 - random.nextInt(current_station);
 		}
-		Station destination = l.stations.get(index);
+		Station destination = Mapping.getLineStations(l).get(index);
 		
 		return new Passenger(idGen++, random, origin.getName(), destination.getName());
 		

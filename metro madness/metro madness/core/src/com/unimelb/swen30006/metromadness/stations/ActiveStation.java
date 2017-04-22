@@ -16,7 +16,7 @@ public class ActiveStation extends Station {
 	private static Logger logger = LogManager.getLogger();
 	
 	//public PassengerGenerator g;
-	public ArrayList<Passenger> waiting;
+	//public ArrayList<Passenger> waiting;
 	public int maxVolume;
 	
 	public ActiveStation(float x, float y, PassengerRouter router, String name, int maxPax) {

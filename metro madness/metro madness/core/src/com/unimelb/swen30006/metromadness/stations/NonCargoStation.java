@@ -21,7 +21,7 @@ public class NonCargoStation extends ActiveStation {
 	 * @param name
 	 * @param maxPax
 	 */
-	public NonCargoStation(float x, float y, PassengerRouter router, String name, float maxPax) {
+	public NonCargoStation(float x, float y, PassengerRouter router, String name, int maxPax) {
 		super(x, y, router, name, maxPax);
 		// TODO Auto-generated constructor stub
 	}
