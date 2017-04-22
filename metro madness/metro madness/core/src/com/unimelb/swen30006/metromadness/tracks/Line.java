@@ -74,9 +74,11 @@ public class Line {
 	
 	
 	public Track nextTrack(Station currentStation, boolean forward) throws Exception {
-		if(this.stations.contains(currentStation)){
+		//if(this.stations.contains(currentStation)){//TODO lineStations containnKeys
+		if(Simulation.mappings.getLineStations(this).contains(currentStation)){
 			// Determine the track index
-			int curIndex = this.stations.lastIndexOf(currentStation);
+			//int curIndex = this.stations.lastIndexOf(currentStation);//TODO mapping
+			int curIndex = Simulation.mappings.getLineStations(this).lastIndexOf(currentStation);
 			// Increment to retrieve
 			if(!forward){ curIndex -=1;}
 			
@@ -93,15 +95,15 @@ public class Line {
 	}
 	
 	public Station nextStation(Station s, boolean forward) throws Exception{
-		if(this.stations.contains(s)){
-			int curIndex = this.stations.lastIndexOf(s);
+		if(this.stations.contains(s)){//TODO mapping
+			int curIndex = this.stations.lastIndexOf(s);//TODO mapping ? stations.lastINdexOf???
 			if(forward){ curIndex+=1;}else{ curIndex -=1;}
 			
 			// Check index is within range
-			if((curIndex < 0) || (curIndex > this.stations.size()-1)){
+			if((curIndex < 0) || (curIndex > this.stations.size()-1)){//TODO mapping
 				throw new Exception();
 			} else {
-				return this.stations.get(curIndex);
+				return this.stations.get(curIndex);//TODO mapping getStation
 			}
 		} else {
 			throw new Exception();
