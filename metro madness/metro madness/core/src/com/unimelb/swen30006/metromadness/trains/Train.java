@@ -83,13 +83,13 @@ public class Train {
 		switch(this.state) {
 		case FROM_DEPOT:
 			if(hasChanged){
-				logger.info(this.name+ " is travelling from the depot: "+this.station.name+" Station...");
+				logger.info(this.name+ " is travelling from the depot: "+this.station.getName()+" Station...");
 			}
 			
 			// We have our station initialized we just need to retrieve the next track, enter the
 			// current station officially and mark as in station
 			try {
-				if(this.station.canEnter(this.trainLine)){
+				if(this.station.canEnter(this)){
 					
 					this.station.enter(this);
 					this.pos = (Point2D.Float) this.station.position.clone();
@@ -101,7 +101,7 @@ public class Train {
 			}
 		case IN_STATION:
 			if(hasChanged){
-				logger.info(this.name+" is in "+this.station.name+" Station.");
+				logger.info(this.name+" is in "+this.station.getName()+" Station.");
 			}
 			
 			// When in station we want to disembark passengers 
@@ -133,7 +133,7 @@ public class Train {
 			break;
 		case READY_DEPART:
 			if(hasChanged){
-				logger.info(this.name+ " is ready to depart for "+this.station.name+" Station!");
+				logger.info(this.name+ " is ready to depart for "+this.station.getName()+" Station!");
 			}
 			
 			// When ready to depart, check that the track is clear and if
@@ -155,7 +155,7 @@ public class Train {
 			break;
 		case ON_ROUTE:
 			if(hasChanged){
-				logger.info(this.name+ " enroute to "+this.station.name+" Station!");
+				logger.info(this.name+ " enroute to "+this.station.getName()+" Station!");
 			}
 			
 			// Checkout if we have reached the new station
@@ -167,13 +167,13 @@ public class Train {
 			break;
 		case WAITING_ENTRY:
 			if(hasChanged){
-				logger.info(this.name+ " is awaiting entry "+this.station.name+" Station..!");
+				logger.info(this.name+ " is awaiting entry "+this.station.getName()+" Station..!");
 			}
 			
 			// Waiting to enter, we need to check the station has room and if so
 			// then we need to enter, otherwise we just wait
 			try {
-				if(this.station.canEnter(this.trainLine)){
+				if(this.station.canEnter(this)){
 					this.track.leave(this);
 					this.pos = (Point2D.Float) this.station.position.clone();
 					this.station.enter(this);
@@ -208,7 +208,7 @@ public class Train {
 		while(iterator.hasNext()){
 			Passenger p = iterator.next();
 			if(this.station.shouldLeave(p)){
-				logger.info("Passenger "+p.id+" is disembarking at "+this.station.name);
+				logger.info("Passenger "+p.getId()+" is disembarking at "+this.station.getName());
 				disembarking.add(p);
 				iterator.remove();
 			}

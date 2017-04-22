@@ -59,9 +59,9 @@ public class PassengerGenerator {
 		} else {
 			index = current_station - 1 - random.nextInt(current_station);
 		}
-		Station s = l.stations.get(index);
+		String destination = l.stations.get(index).getName();
 		
-		return this.s.generatePassenger(idGen++, random, s);
+		return this.s.generatePassenger(idGen++, random, destination);
 	}
 	
 }
