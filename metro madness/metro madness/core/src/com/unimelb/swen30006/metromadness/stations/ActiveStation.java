@@ -10,7 +10,6 @@ import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
 import com.unimelb.swen30006.metromadness.routers.PassengerRouter;
 import com.unimelb.swen30006.metromadness.tracks.Line;
-import com.unimelb.swen30006.metromadness.trains.Train;
 
 public class ActiveStation extends Station {
 	// Logger
@@ -22,7 +21,7 @@ public class ActiveStation extends Station {
 	
 	public ActiveStation(float x, float y, PassengerRouter router, String name, int maxPax) {
 		super(x, y, router, name);
-		this.waiting = new ArrayList<Passenger>();
+		//this.waiting = new ArrayList<Passenger>();
 		//this.g = new PassengerGenerator(this, this.lines, maxPax);
 		this.maxVolume = maxPax;
 	}
@@ -77,7 +76,7 @@ public class ActiveStation extends Station {
 		// Calculate the percentage
 		float t = this.trains.size()/(float)PLATFORMS;
 		Color c = Color.WHITE.cpy().lerp(Color.DARK_GRAY, t);
-		if(this.waiting.size() > 0){
+		if(Mapping.getStationPassengers(this).size() > 0){
 			c = Color.RED;
 		}
 		
