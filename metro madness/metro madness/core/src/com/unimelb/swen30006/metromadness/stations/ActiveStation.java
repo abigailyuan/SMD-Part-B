@@ -1,15 +1,13 @@
 package com.unimelb.swen30006.metromadness.stations;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
-import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
 import com.unimelb.swen30006.metromadness.routers.PassengerRouter;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.Train;
@@ -69,8 +67,8 @@ public class ActiveStation extends Station {
 */
 	public void render(ShapeRenderer renderer){
 		float radius = RADIUS;
-		for(int i=0; (i<this.lines.size() && i<MAX_LINES); i++){
-			Line l = this.lines.get(i);
+		for(int i=0; (i<Mapping.getStationLines(this).size() && i<MAX_LINES); i++){
+			Line l = Mapping.getStationLines(this).get(i);
 			renderer.setColor(l.lineColour);
 			renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);
 			radius = radius - 1;
