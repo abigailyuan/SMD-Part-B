@@ -2147,6 +2147,7 @@
 2017-04-20 12:53:16 INFO  ActiveStation - Passenger 329 carrying 39 kg embarking at Flinders St heading to Flagstaff
 2017-04-20 12:53:16 INFO  Train - Amtrak is in Flinders St Station.
 <<<<<<< HEAD
+<<<<<<< HEAD
 2017-04-22 10:58:30,400 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
 2017-04-22 10:58:30,404 INFO  ActiveStation - Passenger 1 carrying 22 kg embarking at Rosanna heading to Southern Cross
 2017-04-22 10:58:30,405 INFO  ActiveStation - Passenger 2 carrying 29 kg embarking at Rosanna heading to North Richmond
@@ -2228,6 +2229,8 @@
 2017-04-22 11:06:13 INFO  ActiveStation - Passenger 16 carrying 47 kg embarking at Newport heading to Williamstown
 2017-04-22 11:06:14 INFO  Train - Amtrak is in Newport Station.
 =======
+=======
+>>>>>>> 034fb3a03f5f570069c34efeede98489b2f1374f
 2017-04-22 10:48:14 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
 2017-04-22 10:48:14 INFO  ActiveStation - Passenger 1 carrying 22 kg embarking at Rosanna heading to Southern Cross
 2017-04-22 10:48:14 INFO  ActiveStation - Passenger 2 carrying 29 kg embarking at Rosanna heading to North Richmond
@@ -2921,4 +2924,7 @@
 2017-04-22 11:43:16 INFO  Train - Flying Scotsman enroute to Ringwood Station!
 2017-04-22 11:43:16 INFO  Train - Orient Express enroute to Macaulay Station!
 2017-04-22 11:43:16 INFO  Train - Amtrak enroute to Newport Station!
+<<<<<<< HEAD
+>>>>>>> 034fb3a03f5f570069c34efeede98489b2f1374f
+=======
 >>>>>>> 034fb3a03f5f570069c34efeede98489b2f1374f
