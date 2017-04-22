@@ -17,7 +17,7 @@ public class Simulation {
 	public ArrayList<Train> trains;
 	//public static PassengerGenerator passengerGen;
 	//public ArrayList<Passenger> passengers;
-	public static Mapping mappings;
+	//public static Mapping mappings;
 	
 	public Simulation(String fileName){
 		// Create a map reader and read in the file
@@ -25,7 +25,7 @@ public class Simulation {
 		m.process();
 		
 		//Create a mapping	
-		Simulation.mappings = new Mapping();		
+		//Simulation.mappings = new Mapping();		
 		
 		
 		// Create a list of lines
@@ -43,6 +43,7 @@ public class Simulation {
 		// Create a list of passengers
 		// this.passengers = new ArrayList<Passenger>();
 		//passengerGen = new PassengerGenerator();
+		
 	}
 	
 	
