@@ -30,7 +30,7 @@ public class ActiveStation extends Station {
 	}
 	
 	@Override
-	public void enter(Train t) throws Exception {
+/*	public void enter(Train t) throws Exception {
 		if(trains.size() >= PLATFORMS){
 			throw new Exception();
 		} else {
@@ -66,7 +66,7 @@ public class ActiveStation extends Station {
 			}
 		}
 	}
-	
+*/
 	public void render(ShapeRenderer renderer){
 		float radius = RADIUS;
 		for(int i=0; (i<this.lines.size() && i<MAX_LINES); i++){
