@@ -26,7 +26,7 @@ public class Simulation {
 		m.process();
 		
 		//Create a mapping	
-		this.mappings = new mapping();		
+		Simulation.mappings = new mapping();		
 		
 		
 		// Create a list of lines
