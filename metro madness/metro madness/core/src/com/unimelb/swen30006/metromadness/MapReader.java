@@ -18,16 +18,20 @@ import com.unimelb.swen30006.metromadness.routers.PassengerRouter;
 import com.unimelb.swen30006.metromadness.routers.SimpleRouter;
 import com.unimelb.swen30006.metromadness.stations.ActiveStation;
 import com.unimelb.swen30006.metromadness.stations.Station;
+import com.unimelb.swen30006.metromadness.tracks.DualTrack;
 import com.unimelb.swen30006.metromadness.tracks.Line;
+import com.unimelb.swen30006.metromadness.tracks.Track;
 import com.unimelb.swen30006.metromadness.trains.BigPassengerTrain;
 import com.unimelb.swen30006.metromadness.trains.SmallPassengerTrain;
 import com.unimelb.swen30006.metromadness.trains.Train;
+import com.unimelb.swen30006.metromadness.mapping.*;
 
 public class MapReader {
 
 	public ArrayList<Train> trains;
 	public HashMap<String, Station> stations;
 	public HashMap<String, Line> lines;
+	public mapping mappings;
 
 	public boolean processed;
 	public String filename;
@@ -38,6 +42,7 @@ public class MapReader {
 		this.lines = new HashMap<String, Line>();
 		this.filename = filename;
 		this.processed = false;
+		this.mappings = new mapping();
 	}
 
 	public void process(){
@@ -144,7 +149,22 @@ public class MapReader {
 		for(Element s: stations){
 			Station station = this.stations.get(s.get("name"));
 			boolean twoWay = s.getBoolean("double");
-			l.addStation(station, twoWay);
+			l.addStation(station, twoWay); //TODO replace with add to mapping
+			//add station to line
+			this.mappings.addLineStations(l, station);
+			//if this is not first station, add track before the station
+			if(this.mappings.getLineStations(l).size() > 1){
+				Track t;
+				Station last = this.mappings.getLineStations(l).get(this.mappings.getLineStations(l).size()-1);
+				if(twoWay){
+					t = new DualTrack(last.position, station.position, l.trackColour);
+				}else{
+					t = new Track(last.position, station.position, l.trackColour);
+				}
+				this.mappings.addlineTracks(l, t);
+			}
+			//add line to station
+			this.mappings.addStationLines(station, l);
 		}
 		
 		return l;

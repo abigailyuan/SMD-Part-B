@@ -3,6 +3,7 @@ package com.unimelb.swen30006.metromadness.mapping;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.unimelb.swen30006.metromadness.passengers.Passenger;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.tracks.Track;
@@ -12,12 +13,14 @@ public class mapping {
 	private HashMap<Line, ArrayList<Station>> lineStations;
 	private HashMap<Station, ArrayList<Line>> stationLines;
 	private HashMap<Line, ArrayList<Track>> lineTracks;
+	private HashMap<Station, ArrayList<Passenger>> stationPassengers;
 	
 	public mapping(){
 		
 		lineStations = new HashMap<Line, ArrayList<Station>>();
 		stationLines = new HashMap<Station, ArrayList<Line>>();
 		lineTracks = new HashMap<Line, ArrayList<Track>>();
+		stationPassengers = new HashMap<Station, ArrayList<Passenger>>();
 		
 	}
 	
@@ -29,6 +32,9 @@ public class mapping {
 	}
 	public ArrayList<Track> getLineTracks(Line l){
 		return lineTracks.get(l);
+	}
+	public ArrayList<Passenger> getStationPassnegers(Station s){
+		return stationPassengers.get(s);
 	}
 	
 	public void addLineStations(Line l, Station s){
@@ -72,6 +78,19 @@ public class mapping {
 					//insert
 					lineTracks.get(l).add(t);
 				}
+	}
+	public void addStationPassengers(Station s, Passenger p){
+		//if the station has not been inserted in mapping
+		if(!stationPassengers.containsKey(s)){
+			//create ArrayList for p
+			ArrayList<Passenger> passengers = new ArrayList<Passenger>();
+			passengers.add(p);
+			//insert
+			stationPassengers.put(s, passengers);
+		}else{
+			//insert
+			stationPassengers.get(s).add(p);
+		}
 	}
 	
 }

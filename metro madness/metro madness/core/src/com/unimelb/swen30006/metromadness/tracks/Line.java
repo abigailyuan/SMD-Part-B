@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.unimelb.swen30006.metromadness.Simulation;
+import com.unimelb.swen30006.metromadness.mapping.mapping;
 import com.unimelb.swen30006.metromadness.stations.Station;
 
 public class Line {
@@ -52,6 +54,7 @@ public class Line {
 		s.registerLine(this);
 		this.stations.add(s);
 	}
+	
 	
 	@Override
 	public String toString() {
