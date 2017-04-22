@@ -38,7 +38,7 @@ public class Mapping {
 		return stationPassengers.get(s);
 	}
 	
-	public void addLineStations(Line l, Station s){
+	public static void addLineStations(Line l, Station s){
 		//if the line has not been inserted in mapping
 		if(!lineStations.containsKey(l)){
 			//create ArrayList for l
@@ -52,7 +52,7 @@ public class Mapping {
 		}
 	}
 	
-	public void addStationLines(Station s, Line l){
+	public static void addStationLines(Station s, Line l){
 		//if the station has not been inserted in mapping
 				if(!stationLines.containsKey(s)){
 					//create ArrayList for l
@@ -66,7 +66,7 @@ public class Mapping {
 				}
 	}
 	
-	public void addlineTracks(Line l, Track t){
+	public static void addlineTracks(Line l, Track t){
 
 		//if the line has not been inserted in mapping
 				if(!lineTracks.containsKey(l)){
@@ -80,7 +80,7 @@ public class Mapping {
 					lineTracks.get(l).add(t);
 				}
 	}
-	public void addStationPassengers(Station s, Passenger p){
+	public static void addStationPassengers(Station s, Passenger p){
 		//if the station has not been inserted in mapping
 		if(!stationPassengers.containsKey(s)){
 			//create ArrayList for p

@@ -31,7 +31,6 @@ public class MapReader {
 	public ArrayList<Train> trains;
 	public HashMap<String, Station> stations;
 	public HashMap<String, Line> lines;
-	public mapping mappings;
 
 	public boolean processed;
 	public String filename;
@@ -42,7 +41,6 @@ public class MapReader {
 		this.lines = new HashMap<String, Line>();
 		this.filename = filename;
 		this.processed = false;
-		this.mappings = new mapping();
 	}
 
 	public void process(){
@@ -151,20 +149,20 @@ public class MapReader {
 			boolean twoWay = s.getBoolean("double");
 			l.addStation(station, twoWay); //TODO replace with add to mapping
 			//add station to line
-			this.mappings.addLineStations(l, station);
+			Mapping.addLineStations(l, station);
 			//if this is not first station, add track before the station
-			if(this.mappings.getLineStations(l).size() > 1){
+			if(Mapping.getLineStations(l).size() > 1){
 				Track t;
-				Station last = this.mappings.getLineStations(l).get(this.mappings.getLineStations(l).size()-1);
+				Station last = Mapping.getLineStations(l).get(Mapping.getLineStations(l).size()-1);
 				if(twoWay){
 					t = new DualTrack(last.position, station.position, l.trackColour);
 				}else{
 					t = new Track(last.position, station.position, l.trackColour);
 				}
-				this.mappings.addlineTracks(l, t);
+				Mapping.addlineTracks(l, t);
 			}
 			//add line to station
-			this.mappings.addStationLines(station, l);
+			Mapping.addStationLines(station, l);
 		}
 		
 		return l;
