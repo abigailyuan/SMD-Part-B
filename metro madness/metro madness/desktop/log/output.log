@@ -3146,6 +3146,7 @@
 2017-04-22 22:28:10 INFO  Train - Flying Scotsman is in Camberwell Station.
 2017-04-22 22:28:10 INFO  Train - Orient Express is in Upfield Station.
 2017-04-22 22:28:10 INFO  Train - Amtrak is in Williamstown Station.
+<<<<<<< HEAD
 2017-04-22 22:35:12 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
 2017-04-22 22:35:12 INFO  Train - Passenger 1 carrying 22 kg embarking at Thomas the Tank Engine heading to Southern Cross
 2017-04-22 22:35:12 INFO  Train - Passenger 2 carrying 29 kg embarking at Thomas the Tank Engine heading to North Richmond
@@ -3221,3 +3222,55 @@
 2017-04-22 22:42:10 INFO  Train - Flying Scotsman is in Camberwell Station.
 2017-04-22 22:42:10 INFO  Train - Orient Express is in Upfield Station.
 2017-04-22 22:42:10 INFO  Train - Amtrak is in Williamstown Station.
+=======
+2017-04-22 22:42:58 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
+2017-04-22 22:42:58 INFO  Train - Passenger 1 carrying 22 kg embarking at Thomas the Tank Engine heading to Southern Cross
+2017-04-22 22:42:58 INFO  Train - Passenger 2 carrying 29 kg embarking at Thomas the Tank Engine heading to North Richmond
+2017-04-22 22:42:58 INFO  Train - Passenger 3 carrying 13 kg embarking at Thomas the Tank Engine heading to Eltham
+2017-04-22 22:42:58 INFO  Train - Passenger 4 carrying 19 kg embarking at Thomas the Tank Engine heading to Clifton Hill
+2017-04-22 22:42:58 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-22 22:42:58 INFO  Train - Flying Scotsman is travelling from the depot: Camberwell Station...
+2017-04-22 22:42:58 INFO  Train - Passenger 5 carrying 25 kg embarking at Flying Scotsman heading to Ringwood
+2017-04-22 22:42:58 INFO  Train - Passenger 6 carrying 31 kg embarking at Flying Scotsman heading to Melbourne Central
+2017-04-22 22:42:58 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-22 22:42:58 INFO  Train - Orient Express is travelling from the depot: Upfield Station...
+2017-04-22 22:42:58 INFO  Train - Passenger 7 carrying 18 kg embarking at Orient Express heading to Flinders St
+2017-04-22 22:42:58 INFO  Train - Passenger 8 carrying 4 kg embarking at Orient Express heading to Macaulay
+2017-04-22 22:42:58 INFO  Train - Passenger 9 carrying 8 kg embarking at Orient Express heading to Flinders St
+2017-04-22 22:42:58 INFO  Train - Orient Express is in Upfield Station.
+2017-04-22 22:42:58 INFO  Train - Amtrak is travelling from the depot: Williamstown Station...
+2017-04-22 22:42:58 INFO  Train - Passenger 10 carrying 39 kg embarking at Amtrak heading to North Melbourne
+2017-04-22 22:42:58 INFO  Train - Passenger 11 carrying 39 kg embarking at Amtrak heading to Melbourne Central
+2017-04-22 22:42:58 INFO  Train - Passenger 12 carrying 16 kg embarking at Amtrak heading to Flagstaff
+2017-04-22 22:42:58 INFO  Train - Passenger 13 carrying 45 kg embarking at Amtrak heading to Flinders St
+2017-04-22 22:42:58 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-22 22:42:58 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-22 22:42:58 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-22 22:42:58 INFO  Train - Orient Express is in Upfield Station.
+2017-04-22 22:42:58 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-22 22:56:48 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
+2017-04-22 22:56:48 INFO  Train - Passenger 1 carrying 22 kg embarking at Thomas the Tank Engine heading to Southern Cross
+2017-04-22 22:56:48 INFO  Train - Passenger 2 carrying 29 kg embarking at Thomas the Tank Engine heading to North Richmond
+2017-04-22 22:56:48 INFO  Train - Passenger 3 carrying 13 kg embarking at Thomas the Tank Engine heading to Eltham
+2017-04-22 22:56:48 INFO  Train - Passenger 4 carrying 19 kg embarking at Thomas the Tank Engine heading to Clifton Hill
+2017-04-22 22:56:48 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-22 22:56:48 INFO  Train - Flying Scotsman is travelling from the depot: Camberwell Station...
+2017-04-22 22:56:48 INFO  Train - Passenger 5 carrying 25 kg embarking at Flying Scotsman heading to Ringwood
+2017-04-22 22:56:48 INFO  Train - Passenger 6 carrying 31 kg embarking at Flying Scotsman heading to Melbourne Central
+2017-04-22 22:56:48 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-22 22:56:48 INFO  Train - Orient Express is travelling from the depot: Upfield Station...
+2017-04-22 22:56:48 INFO  Train - Passenger 7 carrying 18 kg embarking at Orient Express heading to Flinders St
+2017-04-22 22:56:48 INFO  Train - Passenger 8 carrying 4 kg embarking at Orient Express heading to Macaulay
+2017-04-22 22:56:48 INFO  Train - Passenger 9 carrying 8 kg embarking at Orient Express heading to Flinders St
+2017-04-22 22:56:48 INFO  Train - Orient Express is in Upfield Station.
+2017-04-22 22:56:48 INFO  Train - Amtrak is travelling from the depot: Williamstown Station...
+2017-04-22 22:56:48 INFO  Train - Passenger 10 carrying 39 kg embarking at Amtrak heading to North Melbourne
+2017-04-22 22:56:48 INFO  Train - Passenger 11 carrying 39 kg embarking at Amtrak heading to Melbourne Central
+2017-04-22 22:56:48 INFO  Train - Passenger 12 carrying 16 kg embarking at Amtrak heading to Flagstaff
+2017-04-22 22:56:48 INFO  Train - Passenger 13 carrying 45 kg embarking at Amtrak heading to Flinders St
+2017-04-22 22:56:48 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-22 22:56:48 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-22 22:56:48 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-22 22:56:48 INFO  Train - Orient Express is in Upfield Station.
+2017-04-22 22:56:48 INFO  Train - Amtrak is in Williamstown Station.
+>>>>>>> 904741794b3ed9e3c27f362efef0e1c5db7d42f1
