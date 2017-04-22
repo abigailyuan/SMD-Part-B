@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
 import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
 import com.unimelb.swen30006.metromadness.stations.ActiveStation;
@@ -41,7 +42,7 @@ public class Train {
 	public Line trainLine;
 
 	// Passenger Information
-	public ArrayList<Passenger> passengers;
+	//public ArrayList<Passenger> passengers;
 	public float departureTimer;
 	
 	// Station and track and position information
@@ -60,19 +61,24 @@ public class Train {
 	
 	public State previousState = null;
 
+	private int maxPassengers;
 	
-	public Train(Line trainLine, Station start, boolean forward, String name){
+	public Train(Line trainLine, Station start, boolean forward, String name, int maxPassengers){
 		this.trainLine = trainLine;
 		this.station = start;
 		this.state = State.FROM_DEPOT;
 		this.forward = forward;
-		this.passengers = new ArrayList<Passenger>();
+		//this.passengers = new ArrayList<Passenger>();
 		this.name = name;
+		this.maxPassengers = maxPassengers;
 	}
 
 	public void update(float delta){
 		// Update all passengers
-		for(Passenger p: this.passengers){
+		/*for(Passenger p: this.passengers){
+			p.update(delta);
+		}*/
+		for (Passenger p : Mapping.getTrainPassengers(this)){
 			p.update(delta);
 		}
 		boolean hasChanged = false;
@@ -93,7 +99,8 @@ public class Train {
 			try {
 				if(this.station.canEnter(this)){
 					
-					this.station.enter(this);
+					//this.station.enter(this);
+					enter(this.station);
 					this.pos = (Point2D.Float) this.station.position.clone();
 					this.state = State.IN_STATION;
 					this.disembarked = false;
@@ -201,7 +208,7 @@ public class Train {
 				// Add the train
 				s.trains.add(this);
 				// Add the waiting passengers
-				Iterator<Passenger> pIter = s.waiting.iterator();
+				Iterator<Passenger> pIter = Mapping.getStationPassengers(s).iterator();
 				while(pIter.hasNext()){
 					Passenger p = pIter.next();
 					try {
@@ -223,9 +230,9 @@ public class Train {
 				for(Passenger p: ps){
 					try {
 						logger.info("Passenger "+p.getId()+" carrying "+p.getCargo() +" kg embarking at "+ this.name+" heading to "+p.getDestination());
-						t.embark(p);
+						this.embark(p);
 					} catch(Exception e){
-						this.waiting.add(p);
+						Mapping.getStationPassengers(s).add(p);
 					}
 				}
 			}
@@ -241,13 +248,17 @@ public class Train {
 	}
 
 	public void embark(Passenger p) throws Exception {
-		throw new Exception();
+		ArrayList<Passenger> passengersOnTrain = Mapping.getTrainPassengers(this);
+		if(passengersOnTrain.size() > this.maxPassengers){
+			throw new Exception();
+		}
+		passengersOnTrain.add(p);
 	}
 
 
 	public ArrayList<Passenger> disembark(){
 		ArrayList<Passenger> disembarking = new ArrayList<Passenger>();
-		Iterator<Passenger> iterator = this.passengers.iterator();
+		Iterator<Passenger> iterator = Mapping.getTrainPassengers(this).iterator();
 		while(iterator.hasNext()){
 			Passenger p = iterator.next();
 			if(this.station.shouldLeave(p)){

@@ -28,6 +28,8 @@ public class Passenger {
 		this.cargo = generateCargo(random);
 	}
 	
+	
+	
 	public int getId() {
 		return id;
 	}

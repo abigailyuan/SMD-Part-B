@@ -26,7 +26,7 @@ public class ActiveStation extends Station {
 		this.maxVolume = maxPax;
 	}
 	
-	@Override
+//	@Override
 /*	public void enter(Train t) throws Exception {
 		if(trains.size() >= PLATFORMS){
 			throw new Exception();
