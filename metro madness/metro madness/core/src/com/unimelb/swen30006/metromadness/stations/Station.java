@@ -19,7 +19,8 @@ public class Station {
 	public static final float RADIUS=6;
 	public static final int NUM_CIRCLE_STATMENTS=100;
 	public static final int MAX_LINES=3;
-	public String name;
+	// public String name;
+	protected String name;
 	public ArrayList<Line> lines;
 	public ArrayList<Train> trains;
 	public static final float DEPARTURE_TIME = 2;
@@ -70,7 +71,7 @@ public class Station {
 		}
 	}
 	
-	public boolean canEnter(Line l) throws Exception {
+	public boolean canEnter(Train t){
 		return trains.size() < PLATFORMS;
 	}
 
@@ -88,10 +89,13 @@ public class Station {
 		return "Station [position=" + position + ", name=" + name + ", trains=" + trains.size()
 				+ ", router=" + router + "]";
 	}
-
-	public Passenger generatePassenger(int id, Random random, Station s) {
-		return new Passenger(id, random, this, s);
+	/*
+	public Passenger generatePassenger(int id, Random random, String destination) {
+		return new Passenger(id, random, this.name, destination);
 	}
-	
+	*/
+	public String getName() {
+		return name;
+	}
 	
 }
