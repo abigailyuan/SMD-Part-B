@@ -121,7 +121,7 @@ public class Train {
 						if(endOfLine){
 							this.forward = !this.forward;
 						}
-						this.track = this.trainLine.nextTrack(this.station, this.forward);
+						this.track = this.trainLine.nextTrack(this.station, this.forward);//TODO move top mapping nextTrack
 						this.state = State.READY_DEPART;
 						break;
 					} catch (Exception e){
@@ -141,7 +141,7 @@ public class Train {
 			if(this.track.canEnter(this.forward)){
 				try {
 					// Find the next
-					Station next = this.trainLine.nextStation(this.station, this.forward);
+					Station next = this.trainLine.nextStation(this.station, this.forward);//TODO change to mapping nextStation
 					// Depart our current station
 					this.station.depart(this);
 					this.station = next;

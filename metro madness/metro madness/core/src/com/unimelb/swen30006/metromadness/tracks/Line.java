@@ -63,8 +63,8 @@ public class Line {
 
 
 	public boolean endOfLine(Station s) throws Exception{
-		if(this.stations.contains(s)){
-			int index = this.stations.indexOf(s);
+		if(this.stations.contains(s)){ //TODO change to mapping lineStations containsKey
+			int index = this.stations.indexOf(s); //TODO mapping index
 			return (index==0 || index==this.stations.size()-1);
 		} else {
 			throw new Exception();
