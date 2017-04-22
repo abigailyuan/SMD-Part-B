@@ -16,15 +16,9 @@ public class Simulation {
 	public ArrayList<Station> stations;
 	public ArrayList<Line> lines;
 	public ArrayList<Train> trains;
-<<<<<<< HEAD
-	public static PassengerGenerator passengerGen;
-	public ArrayList<Passenger> passengers;
-=======
 	//public static PassengerGenerator passengerGen;
 	//public ArrayList<Passenger> passengers;
->>>>>>> c61b678a1940a341b94cb2d062d609029931b0f0
 	public static mapping mappings;
-	
 	
 	public Simulation(String fileName){
 		// Create a map reader and read in the file
@@ -73,6 +67,4 @@ public class Simulation {
 			s.render(renderer);
 		}
 	}
-	
-	
 }
