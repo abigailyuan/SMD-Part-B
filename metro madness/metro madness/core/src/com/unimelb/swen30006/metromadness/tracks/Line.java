@@ -113,6 +113,7 @@ public class Line {
 	
 		// Draw all the track sections
 		for(Track t: Mapping.getLineTracks(this)){
+			
 			t.render(renderer);
 		}	
 	}

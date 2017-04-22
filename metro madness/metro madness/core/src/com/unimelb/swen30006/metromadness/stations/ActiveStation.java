@@ -81,7 +81,8 @@ public class ActiveStation extends Station {
 		}
 		
 		renderer.setColor(c);
-		renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);		
+		renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);	
+		//System.out.println(name);
 	}
 
 }
