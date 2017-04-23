@@ -3520,3 +3520,74 @@
 2017-04-23 11:17:58 INFO  Train - Generic European Train is in Paris Station.
 2017-04-23 11:17:58 INFO  Train - Vlad the Impalator is in Bucharest Station.
 2017-04-23 11:17:58 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:27:56 INFO  Train - Generic European Train is travelling from the depot: Paris Station...
+2017-04-23 11:27:56 INFO  Train - Passenger 1 carrying 22 kg embarking at Generic European Train heading to London
+2017-04-23 11:27:56 INFO  Train - Passenger 2 carrying 29 kg embarking at Generic European Train heading to Vienna
+2017-04-23 11:27:56 INFO  Train - Passenger 3 carrying 13 kg embarking at Generic European Train heading to Amsterdam
+2017-04-23 11:27:56 INFO  Train - Passenger 4 carrying 19 kg embarking at Generic European Train heading to Berlin
+2017-04-23 11:27:56 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 11:27:56 INFO  Train - Vlad the Impalator is travelling from the depot: Bucharest Station...
+2017-04-23 11:27:56 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:27:56 INFO  Train - Thomas the Tank Engine is travelling from the depot: Glasgow Station...
+2017-04-23 11:27:56 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:27:56 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 11:27:56 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:27:56 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:27:58 INFO  Train - Generic European Train is ready to depart for Paris Station!
+2017-04-23 11:27:58 INFO  Train - Vlad the Impalator is ready to depart for Bucharest Station!
+2017-04-23 11:27:58 INFO  Train - Thomas the Tank Engine is ready to depart for Glasgow Station!
+2017-04-23 11:27:58 INFO  Train - Generic European Train enroute to London Station!
+2017-04-23 11:27:58 INFO  Train - Vlad the Impalator enroute to Bucharest Station!
+2017-04-23 11:27:58 INFO  Train - Thomas the Tank Engine enroute to Glasgow Station!
+2017-04-23 11:27:58 INFO  Train - Vlad the Impalator is awaiting entry Bucharest Station..!
+2017-04-23 11:27:58 INFO  Train - Thomas the Tank Engine is awaiting entry Glasgow Station..!
+2017-04-23 11:27:58 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:27:58 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:28:39 INFO  Train - Generic European Train is travelling from the depot: Paris Station...
+2017-04-23 11:28:39 INFO  Train - Passenger 1 carrying 22 kg embarking at Generic European Train heading to London
+2017-04-23 11:28:39 INFO  Train - Passenger 2 carrying 29 kg embarking at Generic European Train heading to Vienna
+2017-04-23 11:28:39 INFO  Train - Passenger 3 carrying 13 kg embarking at Generic European Train heading to Amsterdam
+2017-04-23 11:28:39 INFO  Train - Passenger 4 carrying 19 kg embarking at Generic European Train heading to Berlin
+2017-04-23 11:28:39 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 11:28:39 INFO  Train - Vlad the Impalator is travelling from the depot: Bucharest Station...
+2017-04-23 11:28:39 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:28:39 INFO  Train - Thomas the Tank Engine is travelling from the depot: Glasgow Station...
+2017-04-23 11:28:39 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:28:39 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 11:28:39 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:28:39 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:28:41 INFO  Train - Generic European Train is ready to depart for Paris Station!
+2017-04-23 11:28:41 INFO  Train - Vlad the Impalator is ready to depart for Bucharest Station!
+2017-04-23 11:28:41 INFO  Train - Thomas the Tank Engine is ready to depart for Glasgow Station!
+2017-04-23 11:28:41 INFO  Train - Generic European Train enroute to London Station!
+2017-04-23 11:28:41 INFO  Train - Vlad the Impalator enroute to Bucharest Station!
+2017-04-23 11:28:41 INFO  Train - Thomas the Tank Engine enroute to Glasgow Station!
+2017-04-23 11:28:41 INFO  Train - Vlad the Impalator is awaiting entry Bucharest Station..!
+2017-04-23 11:28:41 INFO  Train - Thomas the Tank Engine is awaiting entry Glasgow Station..!
+2017-04-23 11:28:41 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:28:41 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:31:36 INFO  Train - Generic European Train is travelling from the depot: Paris Station...
+2017-04-23 11:31:36 INFO  Train - Passenger 1 carrying 22 kg embarking at Generic European Train heading to London
+2017-04-23 11:31:36 INFO  Train - Passenger 2 carrying 29 kg embarking at Generic European Train heading to Vienna
+2017-04-23 11:31:36 INFO  Train - Passenger 3 carrying 13 kg embarking at Generic European Train heading to Amsterdam
+2017-04-23 11:31:36 INFO  Train - Passenger 4 carrying 19 kg embarking at Generic European Train heading to Berlin
+2017-04-23 11:31:36 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 11:31:36 INFO  Train - Vlad the Impalator is travelling from the depot: Bucharest Station...
+2017-04-23 11:31:36 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:31:36 INFO  Train - Thomas the Tank Engine is travelling from the depot: Glasgow Station...
+2017-04-23 11:31:36 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:31:36 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 11:31:36 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:31:36 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:31:38 INFO  Train - Generic European Train is ready to depart for Paris Station!
+2017-04-23 11:31:38 INFO  Train - Vlad the Impalator is ready to depart for Bucharest Station!
+2017-04-23 11:31:38 INFO  Train - Thomas the Tank Engine is ready to depart for Glasgow Station!
+2017-04-23 11:31:38 INFO  Train - Generic European Train enroute to London Station!
+2017-04-23 11:31:38 INFO  Train - Vlad the Impalator enroute to Bucharest Station!
+2017-04-23 11:31:38 INFO  Train - Thomas the Tank Engine enroute to Glasgow Station!
+2017-04-23 11:31:38 INFO  Train - Vlad the Impalator is awaiting entry Bucharest Station..!
+2017-04-23 11:31:38 INFO  Train - Thomas the Tank Engine is awaiting entry Glasgow Station..!
+2017-04-23 11:31:38 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 11:31:38 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 11:31:39 INFO  Train - Generic European Train is awaiting entry London Station..!
+2017-04-23 11:31:39 INFO  Train - Generic European Train is in London Station.
