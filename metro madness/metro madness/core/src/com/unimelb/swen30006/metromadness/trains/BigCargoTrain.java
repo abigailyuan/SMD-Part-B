@@ -18,6 +18,9 @@ public class BigCargoTrain extends BigPassengerTrain {
 	 * @param forward
 	 * @param name
 	 */
+	
+	public int CARGO_CAPACITY = 1000;
+	
 	public BigCargoTrain(Line trainLine, Station start, boolean forward, String name) {
 		super(trainLine, start, forward, name);
 		// TODO Auto-generated constructor stub

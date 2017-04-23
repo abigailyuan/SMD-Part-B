@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.unimelb.swen30006.metromadness.Simulation;
 import com.unimelb.swen30006.metromadness.mapping.Mapping;
+import com.unimelb.swen30006.metromadness.stations.NonCargoStation;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 
@@ -72,7 +73,38 @@ public class PassengerGenerator {
 		}
 		Station destination = Mapping.getLineStations(l).get(index);
 		
-		return new Passenger(idGen++, random, origin.getName(), destination.getName());
+		//if origin is a cargo station, set the destination to a cargo station
+		
+		if(!(origin instanceof NonCargoStation)){
+			int CargoNum = 0;
+			int i = 0;
+			ArrayList<Station> cargoStations = new ArrayList<Station>();
+			for(i=0;i< Mapping.getLineStations(l).size();i++){
+				if(!(Mapping.getLineStations(l).get(i) instanceof NonCargoStation)){
+					cargoStations.add(Mapping.getLineStations(l).get(i));
+				}
+			}
+			if(cargoStations.size() == 1){
+				destination = origin;
+			}else{
+				int indexOrigin = cargoStations.indexOf(origin);
+				if(forward){
+					index = random.nextInt(cargoStations.size()-1-indexOrigin) + indexOrigin + 1;
+				} else {
+					index = indexOrigin - 1 - random.nextInt(indexOrigin);
+				}
+			}
+			destination = cargoStations.get(index);
+		}
+		
+		Passenger p = new Passenger(idGen++, random, origin.getName(), destination.getName());
+		
+		//if origin is a non-cargo station , set the cargo weight to 0.
+		if(origin instanceof NonCargoStation){
+			p.setCargo(0);
+		}
+		
+		return p;
 		
 		// return this.s.generatePassenger(idGen++, random, destination);
 	}
