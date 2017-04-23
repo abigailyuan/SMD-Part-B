@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
+import com.unimelb.swen30006.metromadness.tracks.Track;
 import com.unimelb.swen30006.metromadness.trains.Train;
 //import com.unimelb.swen30006.metromadness.Mapping;
 
@@ -15,6 +16,7 @@ public class Simulation {
 	public ArrayList<Station> stations;
 	public ArrayList<Line> lines;
 	public ArrayList<Train> trains;
+	public ArrayList<Track> tracks;
 	//public static PassengerGenerator passengerGen;
 	//public ArrayList<Passenger> passengers;
 	//public static Mapping mappings;
@@ -44,6 +46,9 @@ public class Simulation {
 		// this.passengers = new ArrayList<Passenger>();
 		//passengerGen = new PassengerGenerator();
 		
+		this.tracks = new ArrayList<Track>();
+		this.tracks.addAll(m.getTracks());
+		
 	}
 	
 	
@@ -51,11 +56,11 @@ public class Simulation {
 	public void update(){
 		// Update all the trains
 		for(Train t: this.trains){
-			System.out.println("1");
+			//System.out.println("1");
 			t.update(Gdx.graphics.getDeltaTime());
-			System.out.println("2");
+			//System.out.println("2");
 		}
-		System.out.println("simulation updated.");
+		//System.out.println("simulation updated.");
 	}
 	
 	public void render(ShapeRenderer renderer){
@@ -63,7 +68,9 @@ public class Simulation {
 			l.render(renderer);
 		}*/
 		
-		for()
+		for(Track t: this.tracks){
+			t.render(renderer);
+		}
 
 		for(Train t: this.trains){
 			t.render(renderer);
