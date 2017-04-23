@@ -80,10 +80,10 @@ public class Line {
 			if(!forward){ curIndex -=1;}
 			
 			// Check index is within range
-			if((curIndex < 0) || (curIndex > this.tracks.size()-1)){
+			if((curIndex < 0) || (curIndex > Mapping.getLineTracks(this).size()-1)){
 				throw new Exception();
 			} else {
-				return this.tracks.get(curIndex);
+				return Mapping.getLineTracks(this).get(curIndex);
 			}
 			
 		} else {

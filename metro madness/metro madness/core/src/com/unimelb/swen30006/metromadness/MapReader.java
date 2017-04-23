@@ -31,6 +31,7 @@ public class MapReader {
 	public ArrayList<Train> trains;
 	public HashMap<String, Station> stations;
 	public HashMap<String, Line> lines;
+	public ArrayList<Track> traks;
 
 	public boolean processed;
 	public String filename;

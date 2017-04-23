@@ -51,14 +51,19 @@ public class Simulation {
 	public void update(){
 		// Update all the trains
 		for(Train t: this.trains){
+			System.out.println("1");
 			t.update(Gdx.graphics.getDeltaTime());
+			System.out.println("2");
 		}
+		System.out.println("simulation updated.");
 	}
 	
 	public void render(ShapeRenderer renderer){
-		for(Line l: this.lines){
+		/*for(Line l: this.lines){
 			l.render(renderer);
-		}
+		}*/
+		
+		for()
 
 		for(Train t: this.trains){
 			t.render(renderer);
