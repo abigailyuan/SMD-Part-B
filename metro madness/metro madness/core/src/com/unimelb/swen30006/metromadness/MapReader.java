@@ -31,7 +31,7 @@ public class MapReader {
 	public ArrayList<Train> trains;
 	public HashMap<String, Station> stations;
 	public HashMap<String, Line> lines;
-	public ArrayList<Track> traks; //test
+	
 
 	public boolean processed;
 	public String filename;
@@ -42,7 +42,7 @@ public class MapReader {
 		this.lines = new HashMap<String, Line>();
 		this.filename = filename;
 		this.processed = false;
-		this.traks = new ArrayList<Track>();
+		
 	}
 
 	public void process(){
@@ -152,6 +152,7 @@ public class MapReader {
 			//l.addStation(station, twoWay); //TODO replace with add to mapping
 			//add station to line
 			Mapping.addLineStations(l, station);
+			System.out.println(l.name+" adds a station "+station.getName());
 			//System.out.println(l.name+" adds a station "+station.getName());
 			//if this is not first station, add track before the station
 			if(Mapping.getLineStations(l).size() > 1){
@@ -163,8 +164,8 @@ public class MapReader {
 					t = new Track(last.position, station.position, l.trackColour);
 				}
 				Mapping.addlineTracks(l, t);
-				this.traks.add(t);
-				//System.out.println(l.name+" adds a track.");
+				
+				System.out.println(l.name+" adds a track.");
 			}
 			//add line to station
 			Mapping.addStationLines(station, l);
@@ -187,7 +188,4 @@ public class MapReader {
 		return new Color(red, green, blue, 1f);
 	}
 	
-	public ArrayList<Track> getTracks(){
-		return this.traks;
-	}
 }
