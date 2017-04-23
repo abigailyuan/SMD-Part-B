@@ -51,26 +51,19 @@ public class Simulation {
 	public void update(){
 		// Update all the trains
 		for(Train t: this.trains){
-<<<<<<< HEAD
+
 			t.update(Gdx.graphics.getDeltaTime());	
 		}
-=======
-			//System.out.println("1" + t.name + "  "+ t.state);
-			t.update(Gdx.graphics.getDeltaTime());
-			//System.out.println("2");
-		}
+
+		
 		//System.out.println("simulation updated.");
->>>>>>> 97ef7612bd90a2ff5b02b8acd225f4d4183da229
+
 	}
 	
 	public void render(ShapeRenderer renderer){
 		for(Line l: this.lines){
 			l.render(renderer);
 		}
-<<<<<<< HEAD
-		
-=======
->>>>>>> 97ef7612bd90a2ff5b02b8acd225f4d4183da229
 
 		for(Train t: this.trains){
 			t.render(renderer);
