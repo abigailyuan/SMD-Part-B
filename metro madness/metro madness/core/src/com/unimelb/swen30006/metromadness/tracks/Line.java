@@ -29,7 +29,7 @@ public class Line {
 		
 		// Create the data structures
 		//this.stations = new ArrayList<Station>();
-		this.tracks = new ArrayList<Track>();
+		//this.tracks = new ArrayList<Track>();
 	}
 	
 	
