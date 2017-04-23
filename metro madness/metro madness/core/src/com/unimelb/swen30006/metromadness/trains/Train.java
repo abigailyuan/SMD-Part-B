@@ -13,6 +13,7 @@ import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
 import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
 import com.unimelb.swen30006.metromadness.stations.ActiveStation;
+import com.unimelb.swen30006.metromadness.stations.CargoStation;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.tracks.Track;
@@ -163,7 +164,21 @@ public class Train {
 			if(this.track.canEnter(this.forward)){
 				try {
 					// Find the next
-					Station next = this.trainLine.nextStation(this.station, this.forward);//TODO change to mapping nextStation
+					Station next = null;
+					
+					// Cargo trains only look for cargo stations
+					if (this instanceof SmallCargoTrain || this instanceof BigCargoTrain) {
+						CargoStation nextCargoStation = this.trainLine.nextCargoStation(this.station, this.forward);
+						if (nextCargoStation != null) {
+							next = nextCargoStation;
+						} else {
+							break;
+						}
+					}
+					
+					// Non-cargo Trains look for any station
+					next = this.trainLine.nextStation(this.station, this.forward);
+					
 					// Depart our current station
 					this.station.depart(this);
 					this.station = next;

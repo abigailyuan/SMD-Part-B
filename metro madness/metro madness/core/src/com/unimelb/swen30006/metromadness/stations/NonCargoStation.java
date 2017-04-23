@@ -28,10 +28,13 @@ public class NonCargoStation extends ActiveStation {
 
 	@Override
 	public boolean canEnter(Train t) {
-		// Only cargo train can enter
+		// Only non-cargo train can enter
 		if (!( t instanceof SmallCargoTrain || t instanceof BigCargoTrain) ) {
 			return trains.size() < PLATFORMS;
-		}
-		return false;
+		} else {
+			
+			return false;
+		} 
+
 	}
 }

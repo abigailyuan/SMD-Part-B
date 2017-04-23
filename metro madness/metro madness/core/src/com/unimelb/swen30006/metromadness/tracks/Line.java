@@ -109,11 +109,11 @@ public class Line {
 	
 	public void render(ShapeRenderer renderer){
 		// Set the color to our line
-		renderer.setColor(trackColour);
+		//renderer.setColor(trackColour);
 	
 		// Draw all the track sections
 		for(Track t: Mapping.getLineTracks(this)){
-			
+			renderer.setColor(t.trackColour);
 			t.render(renderer);
 		}	
 	}
