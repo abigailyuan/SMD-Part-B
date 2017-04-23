@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.unimelb.swen30006.metromadness.mapping.Mapping;
+import com.unimelb.swen30006.metromadness.stations.CargoStation;
 import com.unimelb.swen30006.metromadness.stations.Station;
 
 public class Line {
@@ -116,6 +117,24 @@ public class Line {
 			
 			t.render(renderer);
 		}	
+	}
+	
+	public CargoStation nextCargoStation(Station s, boolean forward) throws Exception{
+		ArrayList<Station> cargoStations = new ArrayList<Station>();
+		int i = 0;
+		for (Station station: Mapping.getLineStations(this)){
+			if(station instanceof CargoStation){
+				cargoStations.add(station);
+			}
+		}
+		int current_station = cargoStations.indexOf(s);
+		if(forward){ current_station+=1;}else{ current_station -=1;}
+		// Check index is within range
+		if((current_station < 0) || (current_station > cargoStations.size()-1)){
+			return null;
+		} else {
+			return (CargoStation)cargoStations.get(current_station);
+		}
 	}
 	
 }
