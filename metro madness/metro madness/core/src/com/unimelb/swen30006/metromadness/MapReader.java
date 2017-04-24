@@ -147,28 +147,30 @@ public class MapReader {
 		
 		Array<Element> stations = e.getChildrenByNameRecursively("station");
 		for(Element s: stations){
-			Station station = this.stations.get(s.get("name"));
+			Station nextStation = this.stations.get(s.get("name"));
 			boolean twoWay = s.getBoolean("double");
 			//l.addStation(station, twoWay); //TODO replace with add to mapping
 			//add station to line
-			Mapping.addLineStations(l, station);
-			System.out.println(l.name+" adds a station "+station.getName());
+			Mapping.addLineStations(l, nextStation);
+			System.out.println(l.name+" adds a station "+ nextStation.getName());
 			//System.out.println(l.name+" adds a station "+station.getName());
 			//if this is not first station, add track before the station
 			if(Mapping.getLineStations(l).size() > 1){
 				Track t;
-				Station last = Mapping.getLineStations(l).get(Mapping.getLineStations(l).size()-1);
+				
+				// The prevStation of the current track is the second last station in the current line
+				Station prevStation = Mapping.getLineStations(l).get(Mapping.getLineStations(l).size()-2);
 				if(twoWay){
-					t = new DualTrack(last.position, station.position, l.trackColour);
+					t = new DualTrack(prevStation.position, nextStation.position, l.trackColour);
 				}else{
-					t = new Track(last.position, station.position, l.trackColour);
+					t = new Track(prevStation.position, nextStation.position, l.trackColour);
 				}
 				Mapping.addlineTracks(l, t);
 				
 				System.out.println(l.name+" adds a track.");
 			}
 			//add line to station
-			Mapping.addStationLines(station, l);
+			Mapping.addStationLines(nextStation, l);
 		}
 		
 		return l;
