@@ -141,7 +141,9 @@ public class Train {
 					// We are ready to depart, find the next track and wait until we can enter 
 					try {
 						boolean endOfLine = this.trainLine.endOfLine(this.station);
-						if(endOfLine){
+						boolean nextCargoStation = this.trainLine.nextCargoStation(this.station, this.forward);
+						if(endOfLine || (!nextCargoStation && 
+						  (this instanceof SmallCargoTrain || this instanceof BigCargoTrain))){
 							this.forward = !this.forward;
 						}
 						this.track = this.trainLine.nextTrack(this.station, this.forward);
@@ -164,27 +166,13 @@ public class Train {
 			if(this.track.canEnter(this.forward)){
 				try {
 					// Find the next
-					Station next = null;
-					
-					// Cargo trains only look for cargo stations
-					if (this instanceof SmallCargoTrain || this instanceof BigCargoTrain) {
-						CargoStation nextCargoStation = this.trainLine.nextCargoStation(this.station, this.forward);
-						if (nextCargoStation != null) {
-							next = nextCargoStation;
-						} else {
-							break;
-						}
-					}
-					
-					// Non-cargo Trains look for any station
-					next = this.trainLine.nextStation(this.station, this.forward);
-					
+					Station next = this.trainLine.nextStation(this.station, this.forward);
 					// Depart our current station
 					this.station.depart(this);
 					this.station = next;
 
 				} catch (Exception e) {
-//					e.printStackTrace();
+					//e.printStackTrace();
 				}
 				this.track.enter(this);
 				this.state = State.ON_ROUTE;
