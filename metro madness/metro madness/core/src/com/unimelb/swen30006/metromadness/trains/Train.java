@@ -172,7 +172,7 @@ public class Train {
 					this.station = next;
 
 				} catch (Exception e) {
-					//e.printStackTrace();
+					e.printStackTrace();
 				}
 				this.track.enter(this);
 				this.state = State.ON_ROUTE;
@@ -199,20 +199,26 @@ public class Train {
 			// then we need to enter, otherwise we just wait
 			try {
 				if(this.station.canEnter(this)){
-					this.track.leave(this);
-					this.pos = (Point2D.Float) this.station.position.clone();
-					//this.station.enter(this);
-					enter(station);
-					this.state = State.IN_STATION;
-					this.disembarked = false;
+				    
+				    this.track.leave(this);
+				    this.pos = (Point2D.Float) this.station.position.clone();
+				    
+				    if(!(this.station instanceof CargoStation) && 
+				      (this instanceof SmallCargoTrain || this instanceof BigCargoTrain)) {
+				        this.track = this.trainLine.nextTrack(this.station, this.forward);
+				        this.state = State.READY_DEPART;
+				    } else {
+				        //this.station.enter(this);
+	                    enter(station);
+	                    this.state = State.IN_STATION;
+	                    this.disembarked = false;
+				    }
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			break;
 		}
-
-
 	}
 
 	public void enter(Station station) throws Exception {
