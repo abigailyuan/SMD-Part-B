@@ -119,9 +119,9 @@ public class Line {
 		}	
 	}
 	
-	public CargoStation nextCargoStation(Station s, boolean forward) throws Exception{
+	public boolean nextCargoStation(Station s, boolean forward) throws Exception{
 		ArrayList<Station> cargoStations = new ArrayList<Station>();
-		int i = 0;
+		
 		for (Station station: Mapping.getLineStations(this)){
 			if(station instanceof CargoStation){
 				cargoStations.add(station);
@@ -131,9 +131,9 @@ public class Line {
 		if(forward){ current_station+=1;}else{ current_station -=1;}
 		// Check index is within range
 		if((current_station < 0) || (current_station > cargoStations.size()-1)){
-			return null;
+			return false;
 		} else {
-			return (CargoStation)cargoStations.get(current_station);
+			return true;
 		}
 	}
 	
