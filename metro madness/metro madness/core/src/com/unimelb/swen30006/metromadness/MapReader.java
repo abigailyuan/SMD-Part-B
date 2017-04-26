@@ -151,8 +151,6 @@ public class MapReader {
 			boolean twoWay = s.getBoolean("double");
 			//add station to line
 			Mapping.addLineStations(l, nextStation);
-			System.out.println(l.name+" adds a station "+ nextStation.getName());
-			//System.out.println(l.name+" adds a station "+station.getName());
 			//if this is not first station, add track before the station
 			if(Mapping.getLineStations(l).size() > 1){
 				Track t;
@@ -165,8 +163,6 @@ public class MapReader {
 					t = new Track(prevStation.position, nextStation.position, l.trackColour);
 				}
 				Mapping.addlineTracks(l, t);
-				
-				System.out.println(l.name+" adds a track.");
 			}
 			//add line to station
 			Mapping.addStationLines(nextStation, l);
