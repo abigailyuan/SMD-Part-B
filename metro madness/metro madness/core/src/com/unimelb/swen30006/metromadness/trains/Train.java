@@ -43,7 +43,6 @@ public class Train {
 	public Line trainLine;
 
 	// Passenger Information
-	//public ArrayList<Passenger> passengers;
 	public float departureTimer;
 	
 	// Station and track and position information
@@ -69,9 +68,8 @@ public class Train {
 		this.station = start;
 		this.state = State.FROM_DEPOT;
 		this.forward = forward;
-		//this.passengers = new ArrayList<Passenger>();
 		this.name = name;
-		this.maxPassengers = maxPassengers;
+		this.setMaxPassengers(maxPassengers);
 	}
 	
 	
@@ -80,15 +78,11 @@ public class Train {
 		this.station = start;
 		this.state = State.FROM_DEPOT;
 		this.forward = forward;
-		//this.passengers = new ArrayList<Passenger>();
 		this.name = name;
 	}
 
 	public void update(float delta){
 		// Update all passengers
-		/*for(Passenger p: this.passengers){
-			p.update(delta);
-		}*/
 		ArrayList<Passenger> psgOnTrain = Mapping.getTrainPassengers(this);
 		if (psgOnTrain.size() > 0) {
 			for (Passenger p : psgOnTrain){
@@ -208,7 +202,6 @@ public class Train {
 				        this.track = this.trainLine.nextTrack(this.station, this.forward);
 				        this.state = State.READY_DEPART;
 				    } else {
-				        //this.station.enter(this);
 	                    enter(station);
 	                    this.state = State.IN_STATION;
 	                    this.disembarked = false;
@@ -224,7 +217,7 @@ public class Train {
 	public void enter(Station station) throws Exception {
 		if (station instanceof ActiveStation) {
 			ActiveStation s = (ActiveStation)station;
-			if(s.trains.size() >= s.PLATFORMS){
+			if(s.trains.size() >= Station.PLATFORMS){
 				throw new Exception();
 			} else {
 				// Add the train
@@ -272,7 +265,7 @@ public class Train {
 
 	public void embark(Passenger p) throws Exception {
 		ArrayList<Passenger> passengersOnTrain = Mapping.getTrainPassengers(this);
-		if(passengersOnTrain.size() > this.maxPassengers){
+		if(passengersOnTrain.size() > this.getMaxPassengers()){
 			throw new Exception();
 		}
 		passengersOnTrain.add(p);
@@ -313,6 +306,16 @@ public class Train {
 			renderer.setColor(col);
 			renderer.circle(this.pos.x, this.pos.y, TRAIN_WIDTH);
 		}
+	}
+
+
+	public int getMaxPassengers() {
+		return maxPassengers;
+	}
+
+
+	public void setMaxPassengers(int maxPassengers) {
+		this.maxPassengers = maxPassengers;
 	}
 	
 }

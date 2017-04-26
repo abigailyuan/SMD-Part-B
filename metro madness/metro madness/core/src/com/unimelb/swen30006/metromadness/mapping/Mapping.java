@@ -17,14 +17,6 @@ public class Mapping {
 	private static HashMap<Station, ArrayList<Passenger>> stationPassengers = new HashMap<Station, ArrayList<Passenger>>();
 	private static HashMap<Train, ArrayList<Passenger>> trainPassengers = new HashMap<Train, ArrayList<Passenger>>();
 	
-	/*public Mapping(){
-		
-		lineStations = new HashMap<Line, ArrayList<Station>>();
-		stationLines = new HashMap<Station, ArrayList<Line>>();
-		lineTracks = new HashMap<Line, ArrayList<Track>>();
-		stationPassengers = new HashMap<Station, ArrayList<Passenger>>();
-		
-	}*/
 	
 	public static ArrayList<Station> getLineStations(Line l){
 		return lineStations.get(l);

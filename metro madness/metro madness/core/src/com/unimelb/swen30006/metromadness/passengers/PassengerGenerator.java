@@ -3,7 +3,6 @@ package com.unimelb.swen30006.metromadness.passengers;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.unimelb.swen30006.metromadness.Simulation;
 import com.unimelb.swen30006.metromadness.mapping.Mapping;
 import com.unimelb.swen30006.metromadness.stations.NonCargoStation;
 import com.unimelb.swen30006.metromadness.stations.Station;
@@ -18,21 +17,12 @@ public class PassengerGenerator {
 	static private int idGen = 1;
 	
 	
-	// The station that passengers are getting on
-	//public Station origin;
-	//public String destination;
-	// The line they are travelling on
+	// The line they are traveling on
 	public ArrayList<Line> lines;
 	
 	// The max volume
 	public float maxVolume;
 	
-	/*public PassengerGenerator(Station origin, ArrayList<Line> lines, float max){
-		this.origin = origin;
-		this.lines = lines;
-		this.maxVolume = max;
-	}*/
-
 	
 	public PassengerGenerator(ArrayList<Line> lines, float max){
 		
@@ -41,7 +31,7 @@ public class PassengerGenerator {
 	}
 	
 	public static Passenger[] generatePassengers(Station origin){
-		int count = random.nextInt(4)+1;                      // ??????????
+		int count = random.nextInt(4)+1;                      
 		Passenger[] passengers = new Passenger[count];
 		for(int i=0; i<count; i++){
 			passengers[i] = generatePassenger(origin, random);
@@ -76,7 +66,6 @@ public class PassengerGenerator {
 		//if origin is a cargo station, set the destination to a cargo station
 		
 		if(!(origin instanceof NonCargoStation)){
-			int CargoNum = 0;
 			int i = 0;
 			ArrayList<Station> cargoStations = new ArrayList<Station>();
 			for(i=0;i< Mapping.getLineStations(l).size();i++){
@@ -106,7 +95,6 @@ public class PassengerGenerator {
 		
 		return p;
 		
-		// return this.s.generatePassenger(idGen++, random, destination);
 	}
 	
 }

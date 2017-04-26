@@ -2,7 +2,7 @@ package com.unimelb.swen30006.metromadness.stations;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.Random;
+
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -20,9 +20,7 @@ public class Station {
 	public static final float RADIUS=6;
 	public static final int NUM_CIRCLE_STATMENTS=100;
 	public static final int MAX_LINES=3;
-	// public String name;
 	protected String name;
-	//public ArrayList<Line> lines;
 	public ArrayList<Train> trains;
 	public static final float DEPARTURE_TIME = 2;
 	public PassengerRouter router;
@@ -31,7 +29,6 @@ public class Station {
 		this.name = name;
 		this.router = router;
 		this.position = new Point2D.Float(x,y);
-		//this.lines = new ArrayList<Line>();
 		this.trains = new ArrayList<Train>();
 	}
 	
@@ -76,7 +73,6 @@ public class Station {
 		return trains.size() < PLATFORMS;
 	}
 
-	// Returns departure time in seconds
 	public float getDepartureTime() {
 		return DEPARTURE_TIME;
 	}
@@ -90,11 +86,7 @@ public class Station {
 		return "Station [position=" + position + ", name=" + name + ", trains=" + trains.size()
 				+ ", router=" + router + "]";
 	}
-	/*
-	public Passenger generatePassenger(int id, Random random, String destination) {
-		return new Passenger(id, random, this.name, destination);
-	}
-	*/
+	
 	public String getName() {
 		return name;
 	}

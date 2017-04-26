@@ -23,7 +23,6 @@ public class NonCargoStation extends ActiveStation {
 	 */
 	public NonCargoStation(float x, float y, PassengerRouter router, String name, int maxPax) {
 		super(x, y, router, name, maxPax);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

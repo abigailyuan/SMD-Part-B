@@ -23,7 +23,6 @@ public class Track {
 	
 	public void render(ShapeRenderer renderer){
 		renderer.rectLine(startPos.x, startPos.y, endPos.x, endPos.y, LINE_WIDTH);
-		//System.out.println(trackColour.toString());
 	}
 	
 	public boolean canEnter(boolean forward){

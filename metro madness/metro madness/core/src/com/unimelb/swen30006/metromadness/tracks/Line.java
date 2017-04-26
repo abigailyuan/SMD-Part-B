@@ -28,9 +28,6 @@ public class Line {
 		this.trackColour = lineColour;
 		this.name = name;
 		
-		// Create the data structures
-		//this.stations = new ArrayList<Station>();
-		//this.tracks = new ArrayList<Track>();
 	}
 	
 	
@@ -109,8 +106,6 @@ public class Line {
 	}
 	
 	public void render(ShapeRenderer renderer){
-		// Set the color to our line
-		//renderer.setColor(trackColour);
 	
 		// Draw all the track sections
 		for(Track t: Mapping.getLineTracks(this)){

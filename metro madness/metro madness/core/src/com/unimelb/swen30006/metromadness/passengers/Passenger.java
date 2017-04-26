@@ -2,13 +2,9 @@ package com.unimelb.swen30006.metromadness.passengers;
 
 import java.util.Random;
 
-import com.unimelb.swen30006.metromadness.stations.Station;
-
 public class Passenger {
 
 	private int id;
-	//public Station beginning;
-	//public Station destination;
 	private String beginning;
 	private String destination;
 	
@@ -75,13 +71,6 @@ public class Passenger {
 			this.travelTime += time;
 		}
 	}
-	/*
-	public Cargo getCargo(){
-		return cargo;
-	}
-	public Cargo generateCargo(Random random){
-		return new Cargo(random.nextInt(51));
-	}*/
 	
 	public int getCargo() {
 		return this.cargo;
@@ -94,24 +83,5 @@ public class Passenger {
 	public int generateCargo(Random random){
 		return random.nextInt(MAX_CARGO + 1);         
 	}
-	
-	/*
-	public class Cargo{
-		private int weight;
-		
-		public Cargo(int weight){
-			this.setWeight(weight);
-		}
-
-		public int getWeight() {
-			return weight;
-		}
-
-		public void setWeight(int weight) {
-			this.weight = weight;
-		}
-	} */
-
-	
 	
 }
