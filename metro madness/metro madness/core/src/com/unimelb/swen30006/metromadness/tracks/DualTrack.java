@@ -8,8 +8,8 @@ import com.unimelb.swen30006.metromadness.trains.Train;
 
 public class DualTrack extends Track {
 
-	public boolean forwardOccupied;
-	public boolean backwardOccupied;
+	private boolean forwardOccupied;
+	private boolean backwardOccupied;
 	
 	public DualTrack(Float start, Float end, Color col) {
 		super(start, end, col);
@@ -19,14 +19,14 @@ public class DualTrack extends Track {
 	
 	public void render(ShapeRenderer renderer){
 		renderer.rectLine(startPos.x, startPos.y, endPos.x, endPos.y, LINE_WIDTH);
-		renderer.setColor(new Color(245f/255f,245f/255f,245f/255f,0.5f).lerp(this.trackColour, 0.5f));
+		renderer.setColor(new Color(245f/255f,245f/255f,245f/255f,0.5f).lerp(this.getTrackColour(), 0.5f));
 		renderer.rectLine(startPos.x, startPos.y, endPos.x, endPos.y, LINE_WIDTH/3);
-		renderer.setColor(this.trackColour);
+		renderer.setColor(this.getTrackColour());
 	}
 	
 	@Override
 	public void enter(Train t){
-		if(t.forward){
+		if(t.isForward()){
 			this.forwardOccupied = true;
 		} else {
 			this.backwardOccupied = true;
@@ -44,7 +44,7 @@ public class DualTrack extends Track {
 
 	@Override
 	public void leave(Train t) {
-		if(t.forward){
+		if(t.isForward()){
 			this.forwardOccupied = false;
 		} else {
 			this.backwardOccupied = false;

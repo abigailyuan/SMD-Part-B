@@ -9,12 +9,12 @@ import com.unimelb.swen30006.metromadness.tracks.Line;
 
 public class ActiveStation extends Station {
 	
-	public int maxVolume;
+	private int maxVolume;
 	
 	public ActiveStation(float x, float y, PassengerRouter router, String name, int maxPax) {
 		super(x, y, router, name);
 		
-		this.maxVolume = maxPax;
+		this.setMaxVolume(maxPax);
 	}
 	
 
@@ -22,13 +22,13 @@ public class ActiveStation extends Station {
 		float radius = RADIUS;
 		for(int i=0; (i<Mapping.getStationLines(this).size() && i<MAX_LINES); i++){
 			Line l = Mapping.getStationLines(this).get(i);
-			renderer.setColor(l.lineColour);
+			renderer.setColor(l.getLineColour());
 			renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);
 			radius = radius - 1;
 		}
 		
 		// Calculate the percentage
-		float t = this.trains.size()/(float)PLATFORMS;
+		float t = this.getTrains().size()/(float)PLATFORMS;
 		Color c = Color.WHITE.cpy().lerp(Color.DARK_GRAY, t);
 		if(Mapping.getStationPassengers(this).size() > 0){
 			c = Color.RED;
@@ -37,6 +37,16 @@ public class ActiveStation extends Station {
 		renderer.setColor(c);
 		renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);	
 
+	}
+
+
+	public int getMaxVolume() {
+		return maxVolume;
+	}
+
+
+	public void setMaxVolume(int maxVolume) {
+		this.maxVolume = maxVolume;
 	}
 
 }

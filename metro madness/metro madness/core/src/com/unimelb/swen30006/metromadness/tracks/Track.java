@@ -9,15 +9,15 @@ import com.unimelb.swen30006.metromadness.trains.Train;
 public class Track {
 	public static final float DRAW_RADIUS=10f;
 	public static final int LINE_WIDTH=6;
-	public Point2D.Float startPos;
-	public Point2D.Float endPos;
-	public Color trackColour;
-	public boolean occupied;
+	protected Point2D.Float startPos;
+	protected Point2D.Float endPos;
+	private Color trackColour;
+	private boolean occupied;
 	
 	public Track(Point2D.Float start, Point2D.Float end, Color trackCol){
 		this.startPos = start;
 		this.endPos = end;
-		this.trackColour = trackCol;
+		this.setTrackColour(trackCol);
 		this.occupied = false;
 	}
 	
@@ -35,11 +35,19 @@ public class Track {
 	
 	@Override
 	public String toString() {
-		return "Track [startPos=" + startPos + ", endPos=" + endPos + ", trackColour=" + trackColour + ", occupied="
+		return "Track [startPos=" + startPos + ", endPos=" + endPos + ", trackColour=" + getTrackColour() + ", occupied="
 				+ occupied + "]";
 	}
 
 	public void leave(Train t){
 		this.occupied = false;
+	}
+
+	public Color getTrackColour() {
+		return trackColour;
+	}
+
+	public void setTrackColour(Color trackColour) {
+		this.trackColour = trackColour;
 	}
 }

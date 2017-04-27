@@ -11,51 +11,24 @@ import com.unimelb.swen30006.metromadness.stations.Station;
 public class Line {
 	
 	// The colour of this line
-	public Color lineColour;
-	public Color trackColour;
+	private Color lineColour;
+	private Color trackColour;
 	
 	// The name of this line
-	public String name;
-	// The stations on this line
-	public ArrayList<Station> stations;
-	// The tracks on this line between stations
-	public ArrayList<Track> tracks;
-		
+	private String name;
 	// Create a line
 	public Line(Color stationColour, Color lineColour, String name){
 		// Set the line colour
-		this.lineColour = stationColour;
-		this.trackColour = lineColour;
-		this.name = name;
+		this.setLineColour(stationColour);
+		this.setTrackColour(lineColour);
+		this.setName(name);
 		
-	}
-	
-	
-	public void addStation(Station s, Boolean two_way){
-		// We need to build the track if this is adding to existing stations
-		if(Mapping.getLineStations(this).size() > 0){
-			// Get the last station
-			Station last = Mapping.getLineStations(this).get(Mapping.getLineStations(this).size()-1);
-			
-			// Generate a new track
-			Track t;
-			if(two_way){
-				t = new DualTrack(last.position, s.position, this.trackColour);
-			} else {
-				t = new Track(last.position, s.position, this.trackColour);
-			}
-			this.tracks.add(t);
-		}
-		
-		// Add the station
-		s.registerLine(this);
-		Mapping.getLineStations(this).add(s);
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "Line [lineColour=" + lineColour + ", trackColour=" + trackColour + ", name=" + name + "]";
+		return "Line [lineColour=" + getLineColour() + ", trackColour=" + getTrackColour() + ", name=" + getName() + "]";
 	}
 
 
@@ -109,7 +82,7 @@ public class Line {
 	
 		// Draw all the track sections
 		for(Track t: Mapping.getLineTracks(this)){
-			renderer.setColor(t.trackColour);
+			renderer.setColor(t.getTrackColour());
 			t.render(renderer);
 		}	
 	}
@@ -130,6 +103,36 @@ public class Line {
 		} else {
 			return true;
 		}
+	}
+
+
+	public Color getLineColour() {
+		return lineColour;
+	}
+
+
+	public void setLineColour(Color lineColour) {
+		this.lineColour = lineColour;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public Color getTrackColour() {
+		return trackColour;
+	}
+
+
+	public void setTrackColour(Color trackColour) {
+		this.trackColour = trackColour;
 	}
 	
 }

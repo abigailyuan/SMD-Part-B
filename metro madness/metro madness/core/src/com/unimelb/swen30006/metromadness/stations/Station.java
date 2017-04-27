@@ -21,15 +21,15 @@ public class Station {
 	public static final int NUM_CIRCLE_STATMENTS=100;
 	public static final int MAX_LINES=3;
 	protected String name;
-	public ArrayList<Train> trains;
+	private ArrayList<Train> trains;
 	public static final float DEPARTURE_TIME = 2;
-	public PassengerRouter router;
+	private PassengerRouter router;
 
 	public Station(float x, float y, PassengerRouter router, String name){
 		this.name = name;
 		this.router = router;
 		this.position = new Point2D.Float(x,y);
-		this.trains = new ArrayList<Train>();
+		this.setTrains(new ArrayList<Train>());
 	}
 	
 	public void registerLine(Line l){
@@ -40,37 +40,37 @@ public class Station {
 		float radius = RADIUS;
 		for(int i=0; (i<Mapping.getStationLines(this).size() && i<MAX_LINES); i++){
 			Line l = Mapping.getStationLines(this).get(i);
-			renderer.setColor(l.lineColour);
+			renderer.setColor(l.getLineColour());
 			renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);
 			radius = radius - 1;
 		}
 		
 		// Calculate the percentage
-		float t = this.trains.size()/(float)PLATFORMS;
+		float t = this.getTrains().size()/(float)PLATFORMS;
 		Color c = Color.WHITE.cpy().lerp(Color.DARK_GRAY, t);
 		renderer.setColor(c);
 		renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);		
 	}
 	
 	public void enter(Train t) throws Exception {
-		if(trains.size() >= PLATFORMS){
+		if(getTrains().size() >= PLATFORMS){
 			throw new Exception();
 		} else {
-			this.trains.add(t);
+			this.getTrains().add(t);
 		}
 	}
 	
 	
 	public void depart(Train t) throws Exception {
-		if(this.trains.contains(t)){
-			this.trains.remove(t);
+		if(this.getTrains().contains(t)){
+			this.getTrains().remove(t);
 		} else {
 			throw new Exception();
 		}
 	}
 	
 	public boolean canEnter(Train t){
-		return trains.size() < PLATFORMS;
+		return getTrains().size() < PLATFORMS;
 	}
 
 	public float getDepartureTime() {
@@ -83,12 +83,20 @@ public class Station {
 
 	@Override
 	public String toString() {
-		return "Station [position=" + position + ", name=" + name + ", trains=" + trains.size()
+		return "Station [position=" + position + ", name=" + name + ", trains=" + getTrains().size()
 				+ ", router=" + router + "]";
 	}
 	
 	public String getName() {
 		return name;
+	}
+
+	public ArrayList<Train> getTrains() {
+		return trains;
+	}
+
+	public void setTrains(ArrayList<Train> trains) {
+		this.trains = trains;
 	}
 	
 }

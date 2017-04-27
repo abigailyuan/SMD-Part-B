@@ -37,29 +37,27 @@ public class Train {
 	
 	// The train's name
 	
-	public String name;
+	private String name;
 
 	// The line that this is traveling on
-	public Line trainLine;
+	private Line trainLine;
 
 	// Passenger Information
-	public float departureTimer;
+	private float departureTimer;
 	
 	// Station and track and position information
-	public Station station; 
-	public Track track;
-	public Point2D.Float pos;
+	private Station station; 
+	private Track track;
+	private Point2D.Float pos;
 
 	// Direction and direction
-	public boolean forward;
-	public State state;
+	private boolean forward;
+	private State state;
+	private State previousState = null;
 
 	// State variables
-	public int numTrips;
-	public boolean disembarked;
-	
-	
-	public State previousState = null;
+	private int numTrips;
+	private boolean disembarked;
 
 	private int maxPassengers;
 	
@@ -67,7 +65,7 @@ public class Train {
 		this.trainLine = trainLine;
 		this.station = start;
 		this.state = State.FROM_DEPOT;
-		this.forward = forward;
+		this.setForward(forward);
 		this.name = name;
 		this.setMaxPassengers(maxPassengers);
 	}
@@ -77,7 +75,7 @@ public class Train {
 		this.trainLine = trainLine;
 		this.station = start;
 		this.state = State.FROM_DEPOT;
-		this.forward = forward;
+		this.setForward(forward);
 		this.name = name;
 	}
 
@@ -109,7 +107,7 @@ public class Train {
 					
 					//this.station.enter(this);
 					enter(this.station);
-					this.pos = (Point2D.Float) this.station.position.clone();
+					this.setPos((Point2D.Float) this.station.position.clone());
 					this.state = State.IN_STATION;
 					this.disembarked = false;
 				}
@@ -135,12 +133,12 @@ public class Train {
 					// We are ready to depart, find the next track and wait until we can enter 
 					try {
 						boolean endOfLine = this.trainLine.endOfLine(this.station);
-						boolean nextCargoStation = this.trainLine.nextCargoStation(this.station, this.forward);
+						boolean nextCargoStation = this.trainLine.nextCargoStation(this.station, this.isForward());
 						if(endOfLine || (!nextCargoStation && 
 						  (this instanceof SmallCargoTrain || this instanceof BigCargoTrain))){
-							this.forward = !this.forward;
+							this.setForward(!this.isForward());
 						}
-						this.track = this.trainLine.nextTrack(this.station, this.forward);
+						this.track = this.trainLine.nextTrack(this.station, this.isForward());
 						this.state = State.READY_DEPART;
 						break;
 					} catch (Exception e){
@@ -157,10 +155,10 @@ public class Train {
 			
 			// When ready to depart, check that the track is clear and if
 			// so, then occupy it if possible.
-			if(this.track.canEnter(this.forward)){
+			if(this.track.canEnter(this.isForward())){
 				try {
 					// Find the next
-					Station next = this.trainLine.nextStation(this.station, this.forward);
+					Station next = this.trainLine.nextStation(this.station, this.isForward());
 					// Depart our current station
 					this.station.depart(this);
 					this.station = next;
@@ -178,7 +176,7 @@ public class Train {
 			}
 			
 			// Checkout if we have reached the new station
-			if(this.pos.distance(this.station.position) < 10 ){
+			if(this.getPos().distance(this.station.position) < 10 ){
 				this.state = State.WAITING_ENTRY;
 			} else {
 				move(delta);
@@ -195,11 +193,11 @@ public class Train {
 				if(this.station.canEnter(this)){
 				    
 				    this.track.leave(this);
-				    this.pos = (Point2D.Float) this.station.position.clone();
+				    this.setPos((Point2D.Float) this.station.position.clone());
 				    
 				    if(!(this.station instanceof CargoStation) && 
 				      (this instanceof SmallCargoTrain || this instanceof BigCargoTrain)) {
-				        this.track = this.trainLine.nextTrack(this.station, this.forward);
+				        this.track = this.trainLine.nextTrack(this.station, this.isForward());
 				        this.state = State.READY_DEPART;
 				    } else {
 	                    enter(station);
@@ -217,11 +215,11 @@ public class Train {
 	public void enter(Station station) throws Exception {
 		if (station instanceof ActiveStation) {
 			ActiveStation s = (ActiveStation)station;
-			if(s.trains.size() >= Station.PLATFORMS){
+			if(s.getTrains().size() >= Station.PLATFORMS){
 				throw new Exception();
 			} else {
 				// Add the train
-				s.trains.add(this);
+				s.getTrains().add(this);
 				// Add the waiting passengers
 				ArrayList<Passenger> waiting = Mapping.getStationPassengers(s);
 				Iterator<Passenger> pIter = Mapping.getStationPassengers(s).iterator();
@@ -238,7 +236,7 @@ public class Train {
 				}
 				
 				//Do not add new passengers if there are too many already
-				if (waiting.size() > s.maxVolume){
+				if (waiting.size() > s.getMaxVolume()){
 					return;
 				}
 				// Add the new passenger
@@ -257,10 +255,10 @@ public class Train {
 	
 	public void move(float delta){
 		// Work out where we're going
-		float angle = angleAlongLine(this.pos.x,this.pos.y,this.station.position.x,this.station.position.y);
-		float newX = this.pos.x + (float)( Math.cos(angle) * delta * TRAIN_SPEED);
-		float newY = this.pos.y + (float)( Math.sin(angle) * delta * TRAIN_SPEED);
-		this.pos.setLocation(newX, newY);
+		float angle = angleAlongLine(this.getPos().x,this.getPos().y,this.station.position.x,this.station.position.y);
+		float newX = this.getPos().x + (float)( Math.cos(angle) * delta * TRAIN_SPEED);
+		float newY = this.getPos().y + (float)( Math.sin(angle) * delta * TRAIN_SPEED);
+		this.getPos().setLocation(newX, newY);
 	}
 
 	public void embark(Passenger p) throws Exception {
@@ -288,7 +286,7 @@ public class Train {
 
 	@Override
 	public String toString() {
-		return "Train [line=" + this.trainLine.name +", departureTimer=" + departureTimer + ", pos=" + pos + ", forward=" + forward + ", state=" + state
+		return "Train [line=" + this.trainLine.getName() +", departureTimer=" + departureTimer + ", pos=" + getPos() + ", forward=" + isForward() + ", state=" + state
 				+ ", numTrips=" + numTrips + ", disembarked=" + disembarked + "]";
 	}
 
@@ -302,9 +300,9 @@ public class Train {
 
 	public void render(ShapeRenderer renderer){
 		if(!this.inStation()){
-			Color col = this.forward ? FORWARD_COLOUR : BACKWARD_COLOUR;
+			Color col = this.isForward() ? FORWARD_COLOUR : BACKWARD_COLOUR;
 			renderer.setColor(col);
-			renderer.circle(this.pos.x, this.pos.y, TRAIN_WIDTH);
+			renderer.circle(this.getPos().x, this.getPos().y, TRAIN_WIDTH);
 		}
 	}
 
@@ -316,6 +314,26 @@ public class Train {
 
 	public void setMaxPassengers(int maxPassengers) {
 		this.maxPassengers = maxPassengers;
+	}
+
+
+	public boolean isForward() {
+		return forward;
+	}
+
+
+	public void setForward(boolean forward) {
+		this.forward = forward;
+	}
+
+
+	public Point2D.Float getPos() {
+		return pos;
+	}
+
+
+	public void setPos(Point2D.Float pos) {
+		this.pos = pos;
 	}
 	
 }

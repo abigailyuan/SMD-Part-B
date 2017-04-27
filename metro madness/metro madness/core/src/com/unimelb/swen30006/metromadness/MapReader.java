@@ -66,7 +66,7 @@ public class MapReader {
 			Array<Element> lineList = lines.getChildrenByName("line");
 			for(Element e : lineList){
 				Line l = processLine(e);
-				this.lines.put(l.name, l);
+				this.lines.put(l.getName(), l);
 			}
 
 			// Process Trains
@@ -158,9 +158,9 @@ public class MapReader {
 				// The prevStation of the current track is the second last station in the current line
 				Station prevStation = Mapping.getLineStations(l).get(Mapping.getLineStations(l).size()-2);
 				if(twoWay){
-					t = new DualTrack(prevStation.position, nextStation.position, l.trackColour);
+					t = new DualTrack(prevStation.position, nextStation.position, l.getTrackColour());
 				}else{
-					t = new Track(prevStation.position, nextStation.position, l.trackColour);
+					t = new Track(prevStation.position, nextStation.position, l.getTrackColour());
 				}
 				Mapping.addlineTracks(l, t);
 			}

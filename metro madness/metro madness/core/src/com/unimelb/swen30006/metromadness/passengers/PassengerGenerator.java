@@ -17,17 +17,7 @@ public class PassengerGenerator {
 	static private int idGen = 1;
 	
 	
-	// The line they are traveling on
-	public ArrayList<Line> lines;
-	
-	// The max volume
-	public float maxVolume;
-	
-	
 	public PassengerGenerator(ArrayList<Line> lines, float max){
-		
-		this.lines = lines;
-		this.maxVolume = max;
 	}
 	
 	public static Passenger[] generatePassengers(Station origin){
