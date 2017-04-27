@@ -24,7 +24,7 @@ public class BigCargoTrain extends BigPassengerTrain {
 	 */
 	
 	public static final int BIG_CARGO_CAPACITY = 1000;
-	private int current_cargo_capacity = 0;
+	private int currentCargoCapacity = 0;
 	
 	public BigCargoTrain(Line trainLine, Station start, boolean forward, String name) {
 		super(trainLine, start, forward, name);
