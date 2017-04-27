@@ -31,17 +31,17 @@ public class BigCargoTrain extends BigPassengerTrain {
 	}
 	
 	public void addCargo(int weight){
-		this.current_cargo_capacity += weight;
+		this.currentCargoCapacity += weight;
 	}
 
 	public int getCargoWeight(){
-		return this.current_cargo_capacity;
+		return this.currentCargoCapacity;
 	}
 	
 	@Override
 	public void embark(Passenger p) throws Exception{
 		ArrayList<Passenger> passengersOnTrain = Mapping.getTrainPassengers(this);
-		if(passengersOnTrain.size() > this.getMaxPassengers() || this.current_cargo_capacity > BIG_CARGO_CAPACITY){
+		if(passengersOnTrain.size() > this.getMaxPassengers() || this.currentCargoCapacity > BIG_CARGO_CAPACITY){
 			throw new Exception();
 		}
 		passengersOnTrain.add(p);
