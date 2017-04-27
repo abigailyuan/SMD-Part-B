@@ -24,24 +24,24 @@ public class BigCargoTrain extends BigPassengerTrain {
 	 */
 	
 	public static final int BIG_CARGO_CAPACITY = 1000;
-	private int current_cargo_capacity = 0;
+	private int currentCargoCapacity = 0;
 	
 	public BigCargoTrain(Line trainLine, Station start, boolean forward, String name) {
 		super(trainLine, start, forward, name);
 	}
 	
 	public void addCargo(int weight){
-		this.current_cargo_capacity += weight;
+		this.currentCargoCapacity += weight;
 	}
 
 	public int getCargoWeight(){
-		return this.current_cargo_capacity;
+		return this.currentCargoCapacity;
 	}
 	
 	@Override
 	public void embark(Passenger p) throws Exception{
 		ArrayList<Passenger> passengersOnTrain = Mapping.getTrainPassengers(this);
-		if(passengersOnTrain.size() > this.getMaxPassengers() || this.current_cargo_capacity > BIG_CARGO_CAPACITY){
+		if(passengersOnTrain.size() > this.getMaxPassengers() || this.currentCargoCapacity > BIG_CARGO_CAPACITY){
 			throw new Exception();
 		}
 		passengersOnTrain.add(p);
