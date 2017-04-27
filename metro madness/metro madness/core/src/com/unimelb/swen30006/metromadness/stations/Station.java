@@ -31,10 +31,7 @@ public class Station {
 		this.position = new Point2D.Float(x,y);
 		this.setTrains(new ArrayList<Train>());
 	}
-	
-	public void registerLine(Line l){
-		Mapping.getStationLines(this).add(l);
-	}
+
 	
 	public void render(ShapeRenderer renderer){
 		float radius = RADIUS;
@@ -51,16 +48,7 @@ public class Station {
 		renderer.setColor(c);
 		renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);		
 	}
-	
-	public void enter(Train t) throws Exception {
-		if(getTrains().size() >= PLATFORMS){
-			throw new Exception();
-		} else {
-			this.getTrains().add(t);
-		}
-	}
-	
-	
+
 	public void depart(Train t) throws Exception {
 		if(this.getTrains().contains(t)){
 			this.getTrains().remove(t);
