@@ -16,7 +16,8 @@ import com.badlogic.gdx.utils.XmlReader.Element;
 // The things we are generating
 import com.unimelb.swen30006.metromadness.routers.PassengerRouter;
 import com.unimelb.swen30006.metromadness.routers.SimpleRouter;
-import com.unimelb.swen30006.metromadness.stations.ActiveStation;
+import com.unimelb.swen30006.metromadness.stations.CargoStation;
+import com.unimelb.swen30006.metromadness.stations.NonCargoStation;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.DualTrack;
 import com.unimelb.swen30006.metromadness.tracks.Line;
@@ -131,10 +132,13 @@ public class MapReader {
 		PassengerRouter r = createRouter(router);
 		if(type.equals("Active")){
 			int maxPax = e.getInt("max_passengers");
-			return new ActiveStation(x_loc, y_loc, r, name, maxPax);
+			return new NonCargoStation(x_loc, y_loc, r, name, maxPax);
 		} else if (type.equals("Passive")){
 			return new Station(x_loc, y_loc, r, name);
-		} else{
+		} else if(type.equals("Cargo")){
+			int maxPax = e.getInt("max_passengers");
+			return new CargoStation(x_loc, y_loc, r, name, maxPax);
+		}else{
 			return new Station(x_loc,y_loc,r,name);
 		}
 	}

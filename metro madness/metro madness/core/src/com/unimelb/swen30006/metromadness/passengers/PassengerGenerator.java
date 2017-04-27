@@ -17,9 +17,6 @@ public class PassengerGenerator {
 	static private int idGen = 1;
 	
 	
-	public PassengerGenerator(ArrayList<Line> lines, float max){
-	}
-	
 	public static Passenger[] generatePassengers(Station origin){
 		int count = random.nextInt(4)+1;                      
 		Passenger[] passengers = new Passenger[count];

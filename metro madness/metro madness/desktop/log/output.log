@@ -10753,3 +10753,86 @@
 2017-04-27 21:35:47 INFO  Train - Passenger 18 carrying 31 kg embarking at Amtrak heading to North Melbourne
 2017-04-27 21:35:47 INFO  Train - Passenger 19 carrying 43 kg embarking at Amtrak heading to Seaholme
 2017-04-27 21:35:47 INFO  Train - Amtrak is in Newport Station.
+2017-04-27 21:45:45 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
+2017-04-27 21:45:45 INFO  Train - Passenger 1 carrying 5 kg embarking at Thomas the Tank Engine heading to Flinders St
+2017-04-27 21:45:45 INFO  Train - Passenger 2 carrying 46 kg embarking at Thomas the Tank Engine heading to Hurstbridge
+2017-04-27 21:45:45 INFO  Train - Passenger 3 carrying 29 kg embarking at Thomas the Tank Engine heading to Greensborough
+2017-04-27 21:45:45 INFO  Train - Passenger 4 carrying 36 kg embarking at Thomas the Tank Engine heading to Eltham
+2017-04-27 21:45:45 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-27 21:45:45 INFO  Train - Flying Scotsman is travelling from the depot: Camberwell Station...
+2017-04-27 21:45:45 INFO  Train - Passenger 5 carrying 40 kg embarking at Flying Scotsman heading to Flagstaff
+2017-04-27 21:45:45 INFO  Train - Passenger 6 carrying 15 kg embarking at Flying Scotsman heading to Flagstaff
+2017-04-27 21:45:45 INFO  Train - Passenger 7 carrying 4 kg embarking at Flying Scotsman heading to Southern Cross
+2017-04-27 21:45:45 INFO  Train - Passenger 8 carrying 27 kg embarking at Flying Scotsman heading to Flinders St
+2017-04-27 21:45:45 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-27 21:45:45 INFO  Train - Orient Express is travelling from the depot: Upfield Station...
+2017-04-27 21:45:45 INFO  Train - Passenger 9 carrying 39 kg embarking at Orient Express heading to Melbourne Central
+2017-04-27 21:45:45 INFO  Train - Passenger 10 carrying 14 kg embarking at Orient Express heading to Flinders St
+2017-04-27 21:45:45 INFO  Train - Passenger 11 carrying 40 kg embarking at Orient Express heading to Melbourne Central
+2017-04-27 21:45:45 INFO  Train - Passenger 12 carrying 21 kg embarking at Orient Express heading to Southern Cross
+2017-04-27 21:45:45 INFO  Train - Orient Express is in Upfield Station.
+2017-04-27 21:45:45 INFO  Train - Amtrak is travelling from the depot: Williamstown Station...
+2017-04-27 21:45:45 INFO  Train - Passenger 13 carrying 48 kg embarking at Amtrak heading to Southern Cross
+2017-04-27 21:45:45 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-27 21:45:45 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-27 21:45:45 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-27 21:45:45 INFO  Train - Orient Express is in Upfield Station.
+2017-04-27 21:45:45 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-27 21:45:47 INFO  Train - Thomas the Tank Engine is ready to depart for Rosanna Station!
+2017-04-27 21:45:47 INFO  Train - Flying Scotsman is ready to depart for Camberwell Station!
+2017-04-27 21:45:47 INFO  Train - Orient Express is ready to depart for Upfield Station!
+2017-04-27 21:45:47 INFO  Train - Amtrak is ready to depart for Williamstown Station!
+2017-04-27 21:45:47 INFO  Train - Thomas the Tank Engine enroute to Greensborough Station!
+2017-04-27 21:45:47 INFO  Train - Flying Scotsman enroute to Ringwood Station!
+2017-04-27 21:45:47 INFO  Train - Orient Express enroute to Macaulay Station!
+2017-04-27 21:45:47 INFO  Train - Amtrak enroute to Newport Station!
+2017-04-27 21:45:48 INFO  Train - Thomas the Tank Engine is awaiting entry Greensborough Station..!
+2017-04-27 21:45:48 INFO  Train - Passenger 14 carrying 7 kg embarking at Thomas the Tank Engine heading to Hurstbridge
+2017-04-27 21:45:48 INFO  Train - Passenger 15 carrying 8 kg embarking at Thomas the Tank Engine heading to Flinders St
+2017-04-27 21:45:48 INFO  Train - Passenger 16 carrying 40 kg embarking at Thomas the Tank Engine heading to Hurstbridge
+2017-04-27 21:45:48 INFO  Train - Thomas the Tank Engine is in Greensborough Station.
+2017-04-27 21:45:48 INFO  Train - Amtrak is awaiting entry Newport Station..!
+2017-04-27 21:45:48 INFO  Train - Passenger 17 carrying 36 kg embarking at Amtrak heading to Werribee
+2017-04-27 21:45:48 INFO  Train - Passenger 18 carrying 31 kg embarking at Amtrak heading to North Melbourne
+2017-04-27 21:45:48 INFO  Train - Passenger 19 carrying 43 kg embarking at Amtrak heading to Seaholme
+2017-04-27 21:45:48 INFO  Train - Amtrak is in Newport Station.
+2017-04-27 21:59:50 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
+2017-04-27 21:59:50 INFO  Train - Passenger 1 carrying 0 kg embarking at Thomas the Tank Engine heading to Southern Cross
+2017-04-27 21:59:50 INFO  Train - Passenger 2 carrying 0 kg embarking at Thomas the Tank Engine heading to North Richmond
+2017-04-27 21:59:50 INFO  Train - Passenger 3 carrying 0 kg embarking at Thomas the Tank Engine heading to Eltham
+2017-04-27 21:59:50 INFO  Train - Passenger 4 carrying 0 kg embarking at Thomas the Tank Engine heading to Clifton Hill
+2017-04-27 21:59:50 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-27 21:59:50 INFO  Train - Flying Scotsman is travelling from the depot: Camberwell Station...
+2017-04-27 21:59:50 INFO  Train - Passenger 5 carrying 0 kg embarking at Flying Scotsman heading to Ringwood
+2017-04-27 21:59:50 INFO  Train - Passenger 6 carrying 0 kg embarking at Flying Scotsman heading to Melbourne Central
+2017-04-27 21:59:50 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-27 21:59:50 INFO  Train - Orient Express is travelling from the depot: Upfield Station...
+2017-04-27 21:59:50 INFO  Train - Passenger 7 carrying 0 kg embarking at Orient Express heading to Flinders St
+2017-04-27 21:59:50 INFO  Train - Passenger 8 carrying 0 kg embarking at Orient Express heading to Macaulay
+2017-04-27 21:59:50 INFO  Train - Passenger 9 carrying 0 kg embarking at Orient Express heading to Flinders St
+2017-04-27 21:59:50 INFO  Train - Orient Express is in Upfield Station.
+2017-04-27 21:59:50 INFO  Train - Amtrak is travelling from the depot: Williamstown Station...
+2017-04-27 21:59:50 INFO  Train - Passenger 10 carrying 0 kg embarking at Amtrak heading to North Melbourne
+2017-04-27 21:59:50 INFO  Train - Passenger 11 carrying 0 kg embarking at Amtrak heading to Melbourne Central
+2017-04-27 21:59:50 INFO  Train - Passenger 12 carrying 0 kg embarking at Amtrak heading to Flagstaff
+2017-04-27 21:59:50 INFO  Train - Passenger 13 carrying 0 kg embarking at Amtrak heading to Flinders St
+2017-04-27 21:59:50 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-27 21:59:50 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-27 21:59:50 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-27 21:59:50 INFO  Train - Orient Express is in Upfield Station.
+2017-04-27 21:59:50 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-27 21:59:52 INFO  Train - Thomas the Tank Engine is ready to depart for Rosanna Station!
+2017-04-27 21:59:52 INFO  Train - Flying Scotsman is ready to depart for Camberwell Station!
+2017-04-27 21:59:52 INFO  Train - Orient Express is ready to depart for Upfield Station!
+2017-04-27 21:59:52 INFO  Train - Amtrak is ready to depart for Williamstown Station!
+2017-04-27 21:59:52 INFO  Train - Thomas the Tank Engine enroute to Greensborough Station!
+2017-04-27 21:59:52 INFO  Train - Flying Scotsman enroute to Ringwood Station!
+2017-04-27 21:59:52 INFO  Train - Orient Express enroute to Macaulay Station!
+2017-04-27 21:59:52 INFO  Train - Amtrak enroute to Newport Station!
+2017-04-27 21:59:53 INFO  Train - Thomas the Tank Engine is awaiting entry Greensborough Station..!
+2017-04-27 21:59:53 INFO  Train - Passenger 14 carrying 0 kg embarking at Thomas the Tank Engine heading to Eltham
+2017-04-27 21:59:53 INFO  Train - Passenger 15 carrying 0 kg embarking at Thomas the Tank Engine heading to Eltham
+2017-04-27 21:59:53 INFO  Train - Thomas the Tank Engine is in Greensborough Station.
+2017-04-27 21:59:53 INFO  Train - Amtrak is awaiting entry Newport Station..!
+2017-04-27 21:59:53 INFO  Train - Passenger 16 carrying 0 kg embarking at Amtrak heading to Williamstown
+2017-04-27 21:59:53 INFO  Train - Amtrak is in Newport Station.
